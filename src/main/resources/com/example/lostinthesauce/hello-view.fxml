@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.lostinthesauce.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="123.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.HelloController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Username" />
+      <Label layoutX="14.0" layoutY="51.0" text="Password" />
+      <TextField fx:id="usernameTextfield" layoutX="85.0" layoutY="10.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="passwordTextField" layoutX="85.0" layoutY="47.0" prefHeight="26.0" prefWidth="283.0" />
+      <Button layoutX="123.0" layoutY="83.0" mnemonicParsing="false" onAction="#onLoginPress" text="Login" />
+      <Button layoutX="212.0" layoutY="83.0" mnemonicParsing="false" onAction="#onCreateAccountPress" text="Create Account" />
+   </children>
+</Pane>
