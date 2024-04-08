@@ -2,16 +2,21 @@ package com.example.lostinthesauce;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class Main extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Level.fxml"));
+        primaryStage.setScene(new Scene(root, 1200, 600));
+        primaryStage.setTitle("Lost in the Sauce");
+        primaryStage.show();
     }
 
-    @Override
-    public void start(Stage primaryStage) {
-        Game game = new Game();
-        game.start(primaryStage);
+    public static void main(String[] args) {
+        launch(args);
     }
 }
