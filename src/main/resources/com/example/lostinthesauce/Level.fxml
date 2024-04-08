@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane fx:id="scene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.LevelController">
+    <children>
+        <Rectangle fx:id="player" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="212.0" layoutY="650.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+        <Button layoutX="758.0" layoutY="102.0" mnemonicParsing="false" onAction="#start" text="Start" />
+        <Rectangle fx:id="platform3" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="294.0" layoutX="1174.0" layoutY="567.0" stroke="DODGERBLUE" strokeType="INSIDE" width="104.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="30.0" layoutY="861.0" stroke="DODGERBLUE" strokeType="INSIDE" width="1675.0" />
+        <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="256.0" layoutX="734.0" layoutY="605.0" stroke="DODGERBLUE" strokeType="INSIDE" width="344.0" />
+        <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="171.0" layoutX="212.0" layoutY="690.0" stroke="DODGERBLUE" strokeType="INSIDE" width="409.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="30.0" layoutY="-2.0" stroke="DODGERBLUE" strokeType="INSIDE" width="1705.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="890.0" layoutX="1676.0" stroke="DODGERBLUE" strokeType="INSIDE" width="30.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="890.0" layoutX="-1.0" stroke="DODGERBLUE" strokeType="INSIDE" width="30.0" />
+        <Rectangle fx:id="platform4" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="363.0" layoutX="1385.0" layoutY="498.0" stroke="DODGERBLUE" strokeType="INSIDE" width="104.0" />
+        <Rectangle fx:id="platform5" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="86.0" layoutX="1522.0" layoutY="400.0" stroke="DODGERBLUE" strokeType="INSIDE" width="154.0" />
+        <Circle fill="DODGERBLUE" layoutX="1599.0" layoutY="341.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+    </children>
+</Pane>
