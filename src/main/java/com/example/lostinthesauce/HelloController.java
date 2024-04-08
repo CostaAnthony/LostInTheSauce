@@ -11,9 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class HelloController {
 
@@ -40,8 +38,30 @@ public class HelloController {
     }
 
 
-    public void onLoginPress(){
-        dbClass.printAccountInfo(connect);
+    public void onLoginPress(ActionEvent event) throws IOException{
+        String usernameInput = usernameTextfield.getText();
+        String passwordInput = passwordTextField.getText();
+
+        try {
+            String tableName = "AccountInfo";
+            Statement stmt = connect.createStatement();
+            ResultSet result = stmt.executeQuery("select * from " + tableName);
+            while (result.next()) {
+                String username = result.getString("username");
+                String password = result.getString("password");
+                if(username.equals(usernameInput) && password.equals(passwordInput)){
+                    Parent root = FXMLLoader.load(getClass().getResource("sceneChange.fxml"));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+            }
+            System.out.println("Login called");
+        } catch (SQLException except) {
+            except.printStackTrace();
+        }
+
     }
 
     public void onCreateAccountPress(){
