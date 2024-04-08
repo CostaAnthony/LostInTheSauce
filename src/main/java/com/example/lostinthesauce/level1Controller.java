@@ -1,5 +1,9 @@
 package com.example.lostinthesauce;
 
+import javafx.fxml.FXML;
+
+import java.io.IOException;
+
 /**
  * Umer's class to showcase collision
  * Make sure to have a button that opens a menu (Maybe a file bar?)
@@ -7,16 +11,12 @@ package com.example.lostinthesauce;
  * code to do so is in a comment below
  */
 public class level1Controller {
-    /**
-     * @FXML
-     *    private void switchToSignIn() throws IOException {
-     *    HelloApplication.setRoot("home-view");
-     *    }
-     */
-    /**
-     * @FXML
-     *    private void switchToSignIn() throws IOException {
-     *    HelloApplication.setRoot("levelSelect-view");
-     *    }
-     */
+    @FXML
+    private void switchToHome() throws IOException {
+        HelloApplication.setRoot("home-view");
+    }
+    @FXML
+    private void switchToLevelSelect() throws IOException {
+        HelloApplication.setRoot("levelSelect-view");
+     }
 }
