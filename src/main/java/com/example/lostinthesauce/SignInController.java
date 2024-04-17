@@ -48,7 +48,7 @@ public class SignInController {
                 String username = result.getString("username");
                 String password = result.getString("password");
                 if(username.equals(usernameInput) && password.equals(passwordInput)){
-                    Parent root = FXMLLoader.load(getClass().getResource("sceneChange.fxml"));
+                    HelloApplication.setRoot("home-view");
                 }
             }
             System.out.println("Login called");
@@ -57,7 +57,6 @@ public class SignInController {
         }
 
     }
-
     public void onCreateAccountPress(){
         String username;
         String password;
@@ -66,7 +65,6 @@ public class SignInController {
         dbClass.createAccount(connect, username, password);
 
     }
-
     @FXML
     private void switchToHome() throws IOException {
         HelloApplication.setRoot("home-view");
