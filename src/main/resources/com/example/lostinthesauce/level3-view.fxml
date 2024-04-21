@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane fx:id="scene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.level3Controller">
+    <children>
+        <Rectangle fx:id="player" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" layoutX="128.0" layoutY="650.0" stroke="BLACK" strokeType="INSIDE" width="40.0" />
+        <Button layoutX="758.0" layoutY="102.0" mnemonicParsing="false" onAction="#start" text="Start" />
+        <Rectangle fx:id="platform3" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="124.0" layoutX="1152.0" layoutY="737.0" stroke="RED" strokeType="INSIDE" width="165.0" />
+        <Rectangle fx:id="borderBottom" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="30.0" layoutY="861.0" stroke="RED" strokeType="INSIDE" strokeWidth="0.0" width="1705.0" />
+        <Rectangle fx:id="platform2" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="232.0" layoutX="673.0" layoutY="629.0" stroke="RED" strokeType="INSIDE" width="298.0" />
+        <Rectangle fx:id="platform1" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="171.0" layoutX="127.0" layoutY="690.0" stroke="RED" strokeType="INSIDE" width="409.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="30.0" layoutY="-2.0" stroke="DODGERBLUE" strokeType="INSIDE" strokeWidth="0.0" width="1705.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="890.0" layoutX="1676.0" stroke="RED" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="890.0" layoutX="-1.0" stroke="RED" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+        <Rectangle fx:id="platform4" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="207.0" layoutX="1450.0" layoutY="654.0" stroke="RED" strokeType="INSIDE" width="104.0" />
+        <Rectangle fx:id="platform5" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="38.0" layoutX="1235.0" layoutY="493.0" stroke="RED" strokeType="INSIDE" width="185.0" />
+        <Circle fx:id="portal" fill="DODGERBLUE" layoutX="1299.0" layoutY="445.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+        <Button layoutX="1528.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="38.0" prefWidth="134.0" text="Exit to Home" />
+        <Button layoutX="1528.0" layoutY="84.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="38.0" prefWidth="134.0" text="Exit to Level Select" />
+      <Rectangle fx:id="platform6" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="40.0" layoutX="1572.0" layoutY="537.0" stroke="RED" strokeType="INSIDE" width="104.0" />
+    </children>
+</Pane>

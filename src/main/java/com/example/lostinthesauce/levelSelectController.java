@@ -12,6 +12,11 @@ public class levelSelectController {
     private void switchToLevel2() throws IOException {
         HelloApplication.setRoot("level2-view");
     }
+
+    @FXML
+    private void switchToLevel3() throws IOException {
+        HelloApplication.setRoot("level3-view");
+    }
     @FXML
     private void switchToHome() throws IOException {
         HelloApplication.setRoot("home-view");
