@@ -2,6 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
@@ -18,8 +21,98 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="890.0" layoutX="-1.0" stroke="DODGERBLUE" strokeType="INSIDE" width="30.0" />
         <Rectangle fx:id="platform4" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="363.0" layoutX="1385.0" layoutY="498.0" stroke="DODGERBLUE" strokeType="INSIDE" width="104.0" />
         <Rectangle fx:id="platform5" arcHeight="5.0" arcWidth="5.0" fill="#5dff1f" height="86.0" layoutX="1522.0" layoutY="400.0" stroke="DODGERBLUE" strokeType="INSIDE" width="154.0" />
-        <Circle fx:id="portal" fill="DODGERBLUE" layoutX="1599.0" layoutY="341.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fx:id="portal" fill="DODGERBLUE" layoutX="1599.0" layoutY="353.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="1528.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="38.0" prefWidth="134.0" text="Exit to Home" />
       <Button layoutX="1528.0" layoutY="84.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="38.0" prefWidth="134.0" text="Exit to Level Select" />
+      <Circle fx:id="coin5" layoutX="1437.0" layoutY="476.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.801368236541748" blue="0.23000000417232513" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
+      <Circle fx:id="coin4" layoutX="1226.0" layoutY="545.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.801368236541748" blue="0.23000000417232513" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
+      <Circle fx:id="coin3" layoutX="999.0" layoutY="583.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.801368236541748" blue="0.23000000417232513" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
+      <Circle fx:id="coin2" layoutX="819.0" layoutY="583.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.801368236541748" blue="0.23000000417232513" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
+      <Circle fx:id="coin1" layoutX="499.0" layoutY="668.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9666666388511658" green="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.801368236541748" blue="0.23000000417232513" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Circle>
     </children>
 </Pane>

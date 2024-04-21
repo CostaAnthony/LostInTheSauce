@@ -12,26 +12,36 @@ import java.io.IOException;
 
 public class level3Controller {
 
-        @FXML
-        private Pane scene;
-        @FXML
-        private Rectangle player;
-        @FXML
-        private Rectangle platform1;
-        @FXML
-        private Rectangle platform2;
-        @FXML
-        private Rectangle platform3;
-        @FXML
-        private Rectangle platform4;
-        @FXML
-        private Rectangle platform5;
-        @FXML
-        private Rectangle platform6;
-        @FXML
-        private Rectangle borderBottom;
-        @FXML
-        private Circle portal;
+    @FXML
+    private Pane scene;
+    @FXML
+    private Rectangle player;
+    @FXML
+    private Rectangle platform1;
+    @FXML
+    private Rectangle platform2;
+    @FXML
+    private Rectangle platform3;
+    @FXML
+    private Rectangle platform4;
+    @FXML
+    private Rectangle platform5;
+    @FXML
+    private Rectangle platform6;
+    @FXML
+    private Circle coin1;
+    @FXML
+    private Circle coin2;
+    @FXML
+    private Circle coin3;
+    @FXML
+    private Circle coin4;
+    @FXML
+    private Circle coin5;
+    @FXML
+    private Rectangle borderBottom;
+    @FXML
+    private Circle portal;
 
         @FXML
         void start(ActionEvent event) {
@@ -166,7 +176,7 @@ public class level3Controller {
                 }catch (IOException e) {
                     e.printStackTrace();
                 }
-                player.setLayoutY(650);
+                player.setLayoutY(660);
                 player.setLayoutX(128);
             }
 

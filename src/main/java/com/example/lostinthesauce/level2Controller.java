@@ -33,6 +33,16 @@ public class level2Controller {
     @FXML
     private Rectangle platform5;
     @FXML
+    private Circle coin1;
+    @FXML
+    private Circle coin2;
+    @FXML
+    private Circle coin3;
+    @FXML
+    private Circle coin4;
+    @FXML
+    private Circle coin5;
+    @FXML
     private Rectangle borderBottom;
     @FXML
     private Circle portal;
@@ -159,15 +169,16 @@ public class level2Controller {
         }
         else if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
-            System.out.println("Level Beat!!!");
-            try {
+            System.out.println("Level Beat!!!!!!!!!!!!!!!!!!");
+           try {
                 switchToLevelSelect();
             }catch (IOException e) {
                 e.printStackTrace();
             }
             player.setLayoutY(650);
-            player.setLayoutX(128);
+            player.setLayoutX(212);
         }
+
         else{
             isFalling = true;
             System.out.println("No Collision");
