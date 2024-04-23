@@ -175,8 +175,6 @@ public class level2Controller {
             }catch (IOException e) {
                 e.printStackTrace();
             }
-            player.setLayoutY(650);
-            player.setLayoutX(212);
         }
 
         else{
@@ -187,9 +185,13 @@ public class level2Controller {
     @FXML
     private void switchToHome() throws IOException {
         HelloApplication.setRoot("home-view");
+        movementTimer.stop();
+        collisionTimer.stop();
     }
     @FXML
     private void switchToLevelSelect() throws IOException {
         HelloApplication.setRoot("levelSelect-view");
+        movementTimer.stop();
+        collisionTimer.stop();
     }
 }
