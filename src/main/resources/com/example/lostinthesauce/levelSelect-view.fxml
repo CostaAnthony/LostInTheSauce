@@ -24,10 +24,10 @@
             </font>
         </Button>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff411f" height="14.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="600.0" />
-      <Button layoutX="507.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: orange;" text="[Back to Home]">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Button>
+        <Button layoutX="507.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: orange;" text="[Back to Home]">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
