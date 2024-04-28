@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -21,7 +22,7 @@ public class level2Controller {
     @FXML
     private Pane scene;
     @FXML
-    private Rectangle player;
+    private ImageView player;
     @FXML
     private Rectangle platform1;
     @FXML
@@ -61,6 +62,8 @@ public class level2Controller {
     private final double GRAVITY = -0.7;
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
+
+
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -137,29 +140,19 @@ public class level2Controller {
     public void checkCollision(){
 
         if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())){
-            isFalling = false;
-            player.setLayoutY(platform1.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform1);
         }
         else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())){
-            isFalling = false;
-            player.setLayoutY(platform2.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform2);
         }
         else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())){
-            isFalling = false;
-            player.setLayoutY(platform3.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform3);
         }
         else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())){
-            isFalling = false;
-            player.setLayoutY(platform4.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform4);
         }
         else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())){
-            isFalling = false;
-            player.setLayoutY(platform5.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform5);
         }
         else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
@@ -181,6 +174,12 @@ public class level2Controller {
             isFalling = true;
             System.out.println("No Collision");
         }
+    }
+
+    public void fixPlayerDipping(Rectangle platform){
+        isFalling = false;
+        player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
+        System.out.println("Collision");
     }
     @FXML
     private void switchToHome() throws IOException {
