@@ -167,19 +167,39 @@ public class level2Controller {
             player.setLayoutX(212);
             System.out.println("Fell into the Void");
         }
-        else if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
-            isFalling = false;
-            System.out.println("Level Beat!!!!!!!!!!!!!!!!!!");
-           try {
-                switchToLevelSelect();
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
         else{
             isFalling = true;
             System.out.println("No Collision");
+        }
+
+        if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
+            isFalling = false;
+            System.out.println("Level Beat!!!");
+            try {
+                switchToLevelSelect();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
+            coin1.setVisible(false);
+            System.out.println("Collected coin 1");
+        }
+        if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
+            coin2.setVisible(false);
+            System.out.println("Collected coin 2");
+        }
+        if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
+            coin3.setVisible(false);
+            System.out.println("Collected coin 3");
+        }
+        if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
+            coin4.setVisible(false);
+            System.out.println("Collected coin 4");
+        }
+        if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
+            coin5.setVisible(false);
+            System.out.println("Collected coin 5");
         }
     }
     @FXML

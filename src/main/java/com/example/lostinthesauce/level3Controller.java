@@ -10,6 +10,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 public class level3Controller {
 
     @FXML
@@ -130,57 +131,69 @@ public class level3Controller {
             });
         }
 
-        public void checkCollision(){
+        public void checkCollision() {
 
-            if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())){
+            if (player.getBoundsInParent().intersects(platform1.getBoundsInParent())) {
                 isFalling = false;
-                player.setLayoutY(platform1.getLayoutY()-40);
+                player.setLayoutY(platform1.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())){
+            } else if (player.getBoundsInParent().intersects(platform2.getBoundsInParent())) {
                 isFalling = false;
-                player.setLayoutY(platform2.getLayoutY()-40);
+                player.setLayoutY(platform2.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())){
+            } else if (player.getBoundsInParent().intersects(platform3.getBoundsInParent())) {
                 isFalling = false;
-                player.setLayoutY(platform3.getLayoutY()-40);
+                player.setLayoutY(platform3.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())){
+            } else if (player.getBoundsInParent().intersects(platform4.getBoundsInParent())) {
                 isFalling = false;
-                player.setLayoutY(platform4.getLayoutY()-40);
+                player.setLayoutY(platform4.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())){
+            } else if (player.getBoundsInParent().intersects(platform5.getBoundsInParent())) {
                 isFalling = false;
-                player.setLayoutY(platform5.getLayoutY()-40);
+                player.setLayoutY(platform5.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(platform6.getBoundsInParent())) {
+            } else if (player.getBoundsInParent().intersects(platform6.getBoundsInParent())) {
                 isFalling = false;
                 player.setLayoutY(platform6.getLayoutY() - 40);
                 System.out.println("Collision");
-            }
-            else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
+            } else if (player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
                 isFalling = false;
                 player.setLayoutY(650);
                 player.setLayoutX(128);
                 System.out.println("Fell into the Void");
+            }  else {
+                isFalling = true;
+                System.out.println("No Collision");
             }
-            else if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
+            if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
                 isFalling = false;
                 System.out.println("Level Beat!!!");
                 try {
                     switchToLevelSelect();
-                }catch (IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
-            else{
-                isFalling = true;
-                System.out.println("No Collision");
+            if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
+                coin1.setVisible(false);
+                System.out.println("Collected coin 1");
+            }
+            if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
+                coin2.setVisible(false);
+                System.out.println("Collected coin 2");
+            }
+            if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
+                coin3.setVisible(false);
+                System.out.println("Collected coin 3");
+            }
+            if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
+                coin4.setVisible(false);
+                System.out.println("Collected coin 4");
+            }
+            if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
+                coin5.setVisible(false);
+                System.out.println("Collected coin 5");
             }
         }
         @FXML

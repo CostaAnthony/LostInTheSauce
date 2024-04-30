@@ -25,7 +25,7 @@
         <Button layoutX="1528.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="38.0" prefWidth="134.0" text="Exit to Home" />
         <Button layoutX="1528.0" layoutY="84.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="38.0" prefWidth="134.0" text="Exit to Level Select" />
       <Rectangle fx:id="platform6" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="40.0" layoutX="1572.0" layoutY="537.0" stroke="RED" strokeType="INSIDE" width="104.0" />
-      <Circle fx:id="coin1" layoutX="422.0" layoutY="668.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="coin2" layoutX="822.0" layoutY="613.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -43,7 +43,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Circle fx:id="coin2" layoutX="822.0" layoutY="607.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="coin3" layoutX="1235.0" layoutY="722.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -61,7 +61,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Circle fx:id="coin3" layoutX="1235.0" layoutY="715.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="coin4" layoutX="1502.0" layoutY="639.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -79,7 +79,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Circle fx:id="coin4" layoutX="1502.0" layoutY="632.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="coin5" layoutX="1624.0" layoutY="522.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -97,7 +97,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Circle fx:id="coin5" layoutX="1624.0" layoutY="515.0" radius="20.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="coin1" layoutX="416.0" layoutY="675.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
