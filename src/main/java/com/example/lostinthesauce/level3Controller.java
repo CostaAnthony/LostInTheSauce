@@ -9,7 +9,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import java.io.IOException;
 
-public class level2Controller {
+public class level3Controller {
     @FXML
     private Pane scene;
     @FXML
@@ -24,6 +24,8 @@ public class level2Controller {
     private Rectangle platform4;
     @FXML
     private Rectangle platform5;
+    @FXML
+    private Rectangle platform6;
     @FXML
     private Circle coin1;
     @FXML
@@ -41,8 +43,8 @@ public class level2Controller {
 
     @FXML
     void start(ActionEvent event) {
-        player.setLayoutY(650);
-        player.setLayoutX(212);
+        player.setLayoutY(660);
+        player.setLayoutX(128);
     }
 
     private boolean wPressed;
@@ -125,47 +127,51 @@ public class level2Controller {
             if (e.getCode() == KeyCode.A) {
                 aPressed = false;
             }
-
-            if (e.getCode() == KeyCode.D) {
-                dPressed = false;
-            }
+             if (e.getCode() == KeyCode.D) {
+                 dPressed = false;
+             }
         });
     }
 
-    public void checkCollision(){
+    public void checkCollision() {
 
-        if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())&&player.getLayoutY() < platform1.getLayoutY()){
+        if (player.getBoundsInParent().intersects(platform1.getBoundsInParent())&&player.getLayoutY() < platform1.getLayoutY()) {
             isFalling = false;
-            player.setLayoutY(platform1.getLayoutY()-40);
+            player.setLayoutY(platform1.getLayoutY() - 40);
             System.out.println("Collision");
         }
-        else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())&&player.getLayoutY() < platform2.getLayoutY()){
+        else if (player.getBoundsInParent().intersects(platform2.getBoundsInParent())&&player.getLayoutY() < platform2.getLayoutY()) {
             isFalling = false;
-            player.setLayoutY(platform2.getLayoutY()-40);
+            player.setLayoutY(platform2.getLayoutY() - 40);
             System.out.println("Collision");
         }
-        else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())&&player.getLayoutY() < platform3.getLayoutY()){
+        else if (player.getBoundsInParent().intersects(platform3.getBoundsInParent())&&player.getLayoutY() < platform3.getLayoutY()) {
             isFalling = false;
-            player.setLayoutY(platform3.getLayoutY()-40);
+            player.setLayoutY(platform3.getLayoutY() - 40);
             System.out.println("Collision");
         }
-        else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())&&player.getLayoutY() < platform4.getLayoutY()){
+        else if (player.getBoundsInParent().intersects(platform4.getBoundsInParent())&&player.getLayoutY() < platform4.getLayoutY()) {
             isFalling = false;
-            player.setLayoutY(platform4.getLayoutY()-40);
+            player.setLayoutY(platform4.getLayoutY() - 40);
             System.out.println("Collision");
         }
-        else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())&&player.getLayoutY() < platform5.getLayoutY()){
+        else if (player.getBoundsInParent().intersects(platform5.getBoundsInParent())&&player.getLayoutY() < platform5.getLayoutY()) {
             isFalling = false;
-            player.setLayoutY(platform5.getLayoutY()-40);
+            player.setLayoutY(platform5.getLayoutY() - 40);
             System.out.println("Collision");
         }
-        else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
+        else if (player.getBoundsInParent().intersects(platform6.getBoundsInParent())&&player.getLayoutY() < platform6.getLayoutY()) {
+            isFalling = false;
+            player.setLayoutY(platform6.getLayoutY() - 40);
+            System.out.println("Collision");
+        }
+        else if (player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
             player.setLayoutY(650);
-            player.setLayoutX(212);
+            player.setLayoutX(128);
             System.out.println("Fell into the Void");
         }
-        else{
+        else {
             isFalling = true;
             System.out.println("No Collision");
         }
@@ -303,17 +309,36 @@ public class level2Controller {
                 }
             }
         }
+        if (player.getBoundsInParent().intersects(platform6.getBoundsInParent()) && player.getLayoutY() > platform6.getLayoutY() - 40) {
+            double platform6Right = platform6.getLayoutX() + platform6.getWidth();
+            double platform6Left = platform6.getLayoutX();
+
+            if (playerLeft < platform6Right && playerLeft > platform6Left) {
+                // Player is colliding with the right side of the platform, prevent further left movement
+                player.setLayoutX(platform6Right);
+                System.out.println("RIGHT WALL6!?!?!******************");
+            }
+
+            // Check collision with the left side of the platform
+            if (player.getBoundsInParent().intersects(platform6.getBoundsInParent()) && player.getLayoutY() > platform6.getLayoutY() - 40) {
+                if (playerRight > platform6Left && playerRight < platform6Right) {
+                    // Player is colliding with the left side of the platform, prevent further right movement
+                    player.setLayoutX(platform6Left - playerWidth);
+                    System.out.println("LEFT WALL6!?!?????????????????????");
+                }
+            }
+        }
     }
-    @FXML
-    private void switchToHome() throws IOException {
-        HelloApplication.setRoot("home-view");
-        movementTimer.stop();
-        collisionTimer.stop();
+        @FXML
+        private void switchToHome() throws IOException {
+            HelloApplication.setRoot("home-view");
+            movementTimer.stop();
+            collisionTimer.stop();
+        }
+        @FXML
+        private void switchToLevelSelect() throws IOException {
+            HelloApplication.setRoot("levelSelect-view");
+            movementTimer.stop();
+            collisionTimer.stop();
+        }
     }
-    @FXML
-    private void switchToLevelSelect() throws IOException {
-        HelloApplication.setRoot("levelSelect-view");
-        movementTimer.stop();
-        collisionTimer.stop();
-    }
-}

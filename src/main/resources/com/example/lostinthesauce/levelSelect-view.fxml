@@ -6,21 +6,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.levelSelectController">
+<AnchorPane prefHeight="890.0" prefWidth="1705.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.levelSelectController">
     <children>
-        <Text layoutX="199.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Select">
+        <Text layoutX="689.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Select">
             <font>
-                <Font size="40.0" />
+                <Font size="64.0" />
             </font>
         </Text>
-        <Button layoutX="38.0" layoutY="101.0" mnemonicParsing="false" onAction="#switchToLevel1" style="-fx-background-color: orange;" text="[Level 1]">
+        <Button layoutX="628.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchToLevel1" prefHeight="63.0" prefWidth="145.0" style="-fx-background-color: orange;" text="[Level 1]">
             <font>
-                <Font size="20.0" />
+                <Font size="24.0" />
             </font>
         </Button>
-        <Button layoutX="149.0" layoutY="101.0" mnemonicParsing="false" onAction="#switchToLevel2" style="-fx-background-color: orange;" text="[Level 2]">
+        <Button layoutX="784.0" layoutY="324.0" mnemonicParsing="false" onAction="#switchToLevel2" prefHeight="63.0" prefWidth="138.0" style="-fx-background-color: orange;" text="[Level 2]">
             <font>
-                <Font size="20.0" />
+                <Font size="24.0" />
             </font>
         </Button>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff411f" height="14.0" layoutX="553.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="600.0" />
