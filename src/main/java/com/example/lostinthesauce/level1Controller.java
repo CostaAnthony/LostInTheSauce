@@ -35,8 +35,8 @@ public class level1Controller {
 
     @FXML
     void start(ActionEvent event) {
-        player.setLayoutY(650);
-        player.setLayoutX(212);
+        player.setLayoutY(651);
+        player.setLayoutX(181);
     }
 
     private boolean wPressed;
@@ -140,8 +140,8 @@ public class level1Controller {
         }
         else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
-            player.setLayoutY(650);
-            player.setLayoutX(212);
+            player.setLayoutY(651);
+            player.setLayoutX(181);
             System.out.println("Fell into the Void");
         }
         else{

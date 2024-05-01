@@ -1,5 +1,7 @@
 package com.example.lostinthesauce;
 
+import com.google.cloud.firestore.Firestore;
+import com.google.firebase.auth.FirebaseAuth;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +12,14 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     public static Scene scene;
+    public static Firestore fstore;
+    public static FirebaseAuth fauth;
+    private final FirestoreContext contxtFirebase = new FirestoreContext();
     @Override
     public void start(Stage stage) throws IOException {
+        fstore = contxtFirebase.firebase();
+        fauth = FirebaseAuth.getInstance();
+
         scene = new Scene(loadFXML("home-view"), 1705, 890);
         stage.setScene(scene);
         stage.show();
