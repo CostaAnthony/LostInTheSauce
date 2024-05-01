@@ -6,9 +6,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.lostinthesauce.HomeView"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.HomeController">
+    <children>
+        <Text layoutX="540.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOST IN THE SAUCE" textAlignment="CENTER" wrappingWidth="624.5496215820312">
+            <font>
+                <Font size="72.0" />
+            </font>
+        </Text>
+        <Text layoutX="835.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DEMO" textAlignment="CENTER" />
+        <Button layoutX="582.0" layoutY="503.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="82.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Play">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+        <Button layoutX="985.0" layoutY="503.0" mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="82.0" prefWidth="138.0" style="-fx-background-color: orange;" text="Sign-in">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+    </children>
+</Pane>
