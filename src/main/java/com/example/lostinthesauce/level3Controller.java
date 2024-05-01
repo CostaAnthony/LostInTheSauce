@@ -3,6 +3,7 @@ package com.example.lostinthesauce;
 import javafx.fxml.FXML;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -15,7 +16,7 @@ public class level3Controller {
     @FXML
     private Pane scene;
     @FXML
-    private Rectangle player;
+    private ImageView player;
     @FXML
     private Rectangle platform1;
     @FXML
