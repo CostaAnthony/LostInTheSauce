@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     public static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("home-view"), 600, 400);
+        scene = new Scene(loadFXML("home-view"), 1705, 890);
         stage.setScene(scene);
         stage.show();
     }
