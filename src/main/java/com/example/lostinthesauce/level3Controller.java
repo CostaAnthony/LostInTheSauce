@@ -134,34 +134,22 @@ public class level3Controller {
         public void checkCollision(){
 
             if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())){
-                isFalling = false;
-                player.setLayoutY(platform1.getLayoutY()-40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform1);
             }
             else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())){
-                isFalling = false;
-                player.setLayoutY(platform2.getLayoutY()-40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform2);
             }
             else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())){
-                isFalling = false;
-                player.setLayoutY(platform3.getLayoutY()-40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform3);
             }
             else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())){
-                isFalling = false;
-                player.setLayoutY(platform4.getLayoutY()-40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform4);
             }
             else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())){
-                isFalling = false;
-                player.setLayoutY(platform5.getLayoutY()-40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform5);
             }
             else if(player.getBoundsInParent().intersects(platform6.getBoundsInParent())) {
-                isFalling = false;
-                player.setLayoutY(platform6.getLayoutY() - 40);
-                System.out.println("Collision");
+                fixPlayerDipping(platform6);
             }
             else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
                 isFalling = false;
@@ -184,6 +172,12 @@ public class level3Controller {
                 System.out.println("No Collision");
             }
         }
+
+    public void fixPlayerDipping(Rectangle platform){
+        isFalling = false;
+        player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
+        System.out.println("Collision");
+    }
         @FXML
         private void switchToHome() throws IOException {
             HelloApplication.setRoot("home-view");
