@@ -155,7 +155,7 @@
         <Circle fx:id="portal" fill="DODGERBLUE" layoutX="1299.0" layoutY="446.0" radius="43.0" stroke="BLACK" strokeType="INSIDE" />
         <Button layoutX="1528.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="38.0" prefWidth="134.0" text="Exit to Home" />
         <Button layoutX="1528.0" layoutY="84.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="38.0" prefWidth="134.0" text="Exit to Level Select" />
-      <Rectangle fx:id="platform6" arcHeight="5.0" arcWidth="5.0" fill="#ffa521" height="40.0" layoutX="1572.0" layoutY="537.0" stroke="RED" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="platform6" arcHeight="5.0" arcWidth="5.0" fill="#ffc4ca" height="40.0" layoutX="1572.0" layoutY="537.0" stroke="#ff000000" strokeType="INSIDE" width="104.0" />
       <Circle fx:id="coin2" layoutX="822.0" layoutY="613.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
