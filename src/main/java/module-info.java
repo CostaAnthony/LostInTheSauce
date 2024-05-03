@@ -9,8 +9,9 @@ module com.example.lostinthesauce {
     requires google.cloud.firestore;
     requires google.cloud.core;
     requires com.google.api.apicommon;
+    requires javafx.media;
 
 
-    opens com.example.lostinthesauce to javafx.fxml;
+    opens com.example.lostinthesauce to javafx.fxml, javafx.media;
     exports com.example.lostinthesauce;
 }

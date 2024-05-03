@@ -7,6 +7,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+
+import java.io.File;
 import java.io.IOException;
 
 public class level1Controller {
@@ -47,6 +52,10 @@ public class level1Controller {
     private final double GRAVITY = -0.7;
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
+    //File path to the sound effect
+    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
+    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -71,6 +80,10 @@ public class level1Controller {
                 player.setLayoutX(player.getLayoutX() + movementVar);
             }
             if (wPressed && !isFalling) {
+                //Plays the jump sound effect
+                jumpSoundPlayer.play();
+                //Resets the jump sound back to the beginning of the track
+                jumpSoundPlayer.seek(Duration.ZERO);
                 velY += 10.5;
             }
 
