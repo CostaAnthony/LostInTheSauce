@@ -180,49 +180,27 @@ public class level1Controller {
         }
     }
 
-    public void checkCollision2(){
+    public void checkCollision2() {
         double playerLeft = player.getLayoutX();
         double playerRight = player.getLayoutX() + player.getWidth();
-        double playerWidth = player.getWidth();
-        double playerHeight = player.getHeight();
 
+        Rectangle[] platforms = {platform1, platform2};
 
-        if (player.getBoundsInParent().intersects(platform1.getBoundsInParent()) && player.getLayoutY() > platform1.getLayoutY() - 40) {
-            double platform1Right = platform1.getLayoutX() + platform1.getWidth();
-            double platform1Left = platform1.getLayoutX();
+        for (Rectangle platform : platforms) {
+            if (player.getBoundsInParent().intersects(platform.getBoundsInParent()) && player.getLayoutY() > platform.getLayoutY() - 40) {
+                double platformRight = platform.getLayoutX() + platform.getWidth();
+                double platformLeft = platform.getLayoutX();
 
-            if (playerLeft < platform1Right && playerLeft > platform1Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform1Right);
-                System.out.println("RIGHT WALL1!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform1.getBoundsInParent()) && player.getLayoutY() > platform1.getLayoutY() - 40) {
-                if (playerRight > platform1Left && playerRight < platform1Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform1Left - playerWidth);
-                    System.out.println("LEFT WALL1!?!?????????????????????");
+                if (playerRight > platformLeft && playerLeft < platformLeft) {
+                    // Player is colliding with the left side of the platform
+                    player.setLayoutX(platformLeft - player.getWidth());
+                    System.out.println("LEFT WALL!?!?????????????????????");
+                } else if (playerLeft < platformRight && playerRight > platformRight) {
+                    // Player is colliding with the right side of the platform
+                    player.setLayoutX(platformRight);
+                    System.out.println("RIGHT WALL!?!?*******************");
                 }
-            }
-        }
-        if (player.getBoundsInParent().intersects(platform2.getBoundsInParent()) && player.getLayoutY() > platform2.getLayoutY() - 40) {
-            double platform2Right = platform2.getLayoutX() + platform2.getWidth();
-            double platform2Left = platform2.getLayoutX();
 
-            if (playerLeft < platform2Right && playerLeft > platform2Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform2Right);
-                System.out.println("RIGHT WALL2!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform2.getBoundsInParent()) && player.getLayoutY() > platform2.getLayoutY() - 40) {
-                if (playerRight > platform2Left && playerRight < platform2Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform2Left - playerWidth);
-                    System.out.println("LEFT WALL2!?!?????????????????????");
-                }
             }
         }
     }

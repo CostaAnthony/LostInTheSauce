@@ -138,22 +138,22 @@ public class level3Controller {
 
     public void checkCollision() {
 
-            if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())){
+            if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())&&player.getLayoutY() < platform1.getLayoutY()){
                 fixPlayerDipping(platform1);
             }
-            else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())){
+            else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())&&player.getLayoutY() < platform2.getLayoutY()){
                 fixPlayerDipping(platform2);
             }
-            else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())){
+            else if(player.getBoundsInParent().intersects(platform3.getBoundsInParent())&&player.getLayoutY() < platform3.getLayoutY()){
                 fixPlayerDipping(platform3);
             }
-            else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())){
+            else if(player.getBoundsInParent().intersects(platform4.getBoundsInParent())&&player.getLayoutY() < platform4.getLayoutY()){
                 fixPlayerDipping(platform4);
             }
-            else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())){
+            else if(player.getBoundsInParent().intersects(platform5.getBoundsInParent())&&player.getLayoutY() < platform5.getLayoutY()){
                 fixPlayerDipping(platform5);
             }
-            else if(player.getBoundsInParent().intersects(platform6.getBoundsInParent())) {
+            else if(player.getBoundsInParent().intersects(platform6.getBoundsInParent())&&player.getLayoutY() < platform6.getLayoutY()) {
                 fixPlayerDipping(platform6);
             }
             else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
@@ -162,21 +162,21 @@ public class level3Controller {
                 player.setLayoutX(128);
                 System.out.println("Fell into the Void");
             }
-            else if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
-                isFalling = false;
-                System.out.println("Level Beat!!!");
-                try {
-                    switchToLevelSelect();
-                }catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
             else{
                 isFalling = true;
                 System.out.println("No Collision");
             }
 
+        if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
+            isFalling = false;
+            System.out.println("Level Beat!!!");
+            try {
+                switchToLevelSelect();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
             coin1.setVisible(false);
             System.out.println("Collected coin 1");
@@ -199,109 +199,31 @@ public class level3Controller {
         }
     }
 
-    public void checkCollision2(){
+    public void checkCollision2() {
         double playerLeft = player.getLayoutX();
         double playerRight = player.getLayoutX() + player.getFitWidth();
-        double playerWidth = player.getFitWidth();
-        double playerHeight = player.getFitHeight();
 
+        Rectangle[] platforms = {platform1, platform2, platform3, platform4, platform5, platform6};
 
-        if (player.getBoundsInParent().intersects(platform1.getBoundsInParent()) && player.getLayoutY() > platform1.getLayoutY() - 40) {
-            double platform1Right = platform1.getLayoutX() + platform1.getWidth();
-            double platform1Left = platform1.getLayoutX();
+        for (Rectangle platform : platforms) {
+            if (player.getBoundsInParent().intersects(platform.getBoundsInParent()) && player.getLayoutY() > platform.getLayoutY() - 40) {
+                double platformRight = platform.getLayoutX() + platform.getWidth();
+                double platformLeft = platform.getLayoutX();
 
-            if (playerLeft < platform1Right && playerLeft > platform1Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform1Right);
-                System.out.println("RIGHT WALL1!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform1.getBoundsInParent()) && player.getLayoutY() > platform1.getLayoutY() - 40) {
-                if (playerRight > platform1Left && playerRight < platform1Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform1Left - playerWidth);
-                    System.out.println("LEFT WALL1!?!?????????????????????");
+                if (playerRight > platformLeft && playerLeft < platformLeft) {
+                    // Player is colliding with the left side of the platform
+                    player.setLayoutX(platformLeft - player.getFitWidth());
+                    System.out.println("LEFT WALL!?!?????????????????????");
+                } else if (playerLeft < platformRight && playerRight > platformRight) {
+                    // Player is colliding with the right side of the platform
+                    player.setLayoutX(platformRight);
+                    System.out.println("RIGHT WALL!?!?*******************");
                 }
-            }
-        }
-        if (player.getBoundsInParent().intersects(platform2.getBoundsInParent()) && player.getLayoutY() > platform2.getLayoutY() - 40) {
-            double platform2Right = platform2.getLayoutX() + platform2.getWidth();
-            double platform2Left = platform2.getLayoutX();
 
-            if (playerLeft < platform2Right && playerLeft > platform2Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform2Right);
-                System.out.println("RIGHT WALL2!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform2.getBoundsInParent()) && player.getLayoutY() > platform2.getLayoutY() - 40) {
-                if (playerRight > platform2Left && playerRight < platform2Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform2Left - playerWidth);
-                    System.out.println("LEFT WALL2!?!?????????????????????");
-                }
-            }
-        }
-        if (player.getBoundsInParent().intersects(platform3.getBoundsInParent()) && player.getLayoutY() > platform3.getLayoutY() - 40) {
-            double platform3Right = platform3.getLayoutX() + platform3.getWidth();
-            double platform3Left = platform3.getLayoutX();
-
-            if (playerLeft < platform3Right && playerLeft > platform3Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform3Right);
-                System.out.println("RIGHT WALL3!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform3.getBoundsInParent()) && player.getLayoutY() > platform3.getLayoutY() - 40) {
-                if (playerRight > platform3Left && playerRight < platform3Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform3Left - playerWidth);
-                    System.out.println("LEFT WALL3!?!?????????????????????");
-                }
-            }
-        }
-        if (player.getBoundsInParent().intersects(platform4.getBoundsInParent()) && player.getLayoutY() > platform4.getLayoutY() - 40) {
-            double platform4Right = platform4.getLayoutX() + platform4.getWidth();
-            double platform4Left = platform4.getLayoutX();
-
-            if (playerLeft < platform4Right && playerLeft > platform4Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform4Right);
-                System.out.println("RIGHT WALL4!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform4.getBoundsInParent()) && player.getLayoutY() > platform4.getLayoutY() - 40) {
-                if (playerRight > platform4Left && playerRight < platform4Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform4Left - playerWidth);
-                    System.out.println("LEFT WALL4!?!?????????????????????");
-                }
-            }
-        }
-        if (player.getBoundsInParent().intersects(platform5.getBoundsInParent()) && player.getLayoutY() > platform5.getLayoutY() - 40) {
-            double platform5Right = platform5.getLayoutX() + platform5.getWidth();
-            double platform5Left = platform5.getLayoutX();
-
-            if (playerLeft < platform5Right && playerLeft > platform5Left) {
-                // Player is colliding with the right side of the platform, prevent further left movement
-                player.setLayoutX(platform5Right);
-                System.out.println("RIGHT WALL5!?!?!******************");
-            }
-
-            // Check collision with the left side of the platform
-            if (player.getBoundsInParent().intersects(platform5.getBoundsInParent()) && player.getLayoutY() > platform5.getLayoutY() - 40) {
-                if (playerRight > platform5Left && playerRight < platform5Right) {
-                    // Player is colliding with the left side of the platform, prevent further right movement
-                    player.setLayoutX(platform5Left - playerWidth);
-                    System.out.println("LEFT WALL5!?!?????????????????????");
-                }
             }
         }
     }
+
 
 
     public void fixPlayerDipping(Rectangle platform){
