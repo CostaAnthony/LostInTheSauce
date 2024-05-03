@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -1179,6 +1182,85 @@
       <ImageView fitHeight="141.0" fitWidth="293.0" layoutX="1154.0" layoutY="370.0" pickOnBounds="true">
          <image>
             <Image url="@Assets/Portal.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="208.0" layoutY="654.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="208.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="195.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeTop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="704.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="704.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="691.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeTop.png" />
+         </image>
+      </ImageView>
+      <Accordion>
+        <panes>
+          <TitledPane animated="false" text="untitled 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="469.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="456.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeTop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="923.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="910.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeTop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="36.0" layoutX="1274.0" layoutY="701.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeStem.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="1261.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/TreeTop.png" />
          </image>
       </ImageView>
     </children>
