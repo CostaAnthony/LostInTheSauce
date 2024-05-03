@@ -5,8 +5,13 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
+
+import java.io.File;
 import java.io.IOException;
 
 public class level2Controller {
@@ -53,6 +58,13 @@ public class level2Controller {
     private final double GRAVITY = -0.7;
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
+    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
+    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
+
+    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
+    Media bottleSound = new Media(bottleSoundMP3);
+    MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -68,7 +80,6 @@ public class level2Controller {
                 velY = 0;
 
             }
-
             if (aPressed) {
                 player.setLayoutX(player.getLayoutX() - movementVar);
             }
@@ -77,6 +88,11 @@ public class level2Controller {
                 player.setLayoutX(player.getLayoutX() + movementVar);
             }
             if (wPressed && !isFalling) {
+                //Plays the jump sound effect
+                jumpSoundPlayer.play();
+                //Resets the jump sound back to the beginning of the track
+                jumpSoundPlayer.seek(Duration.ZERO);
+                velY += 10.5;
                 velY += 10.5;
             }
 
@@ -169,7 +185,9 @@ public class level2Controller {
             isFalling = true;
             System.out.println("No Collision");
         }
-
+        if(isFalling && player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()){
+            jumpSoundPlayer.seek(Duration.ZERO);
+        }
         if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
             System.out.println("Level Beat!!!");
@@ -180,22 +198,32 @@ public class level2Controller {
             }
         }
         if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin1.setVisible(false);
             System.out.println("Collected coin 1");
         }
         if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin2.setVisible(false);
             System.out.println("Collected coin 2");
         }
         if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin3.setVisible(false);
             System.out.println("Collected coin 3");
         }
         if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin4.setVisible(false);
             System.out.println("Collected coin 4");
         }
         if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin5.setVisible(false);
             System.out.println("Collected coin 5");
         }

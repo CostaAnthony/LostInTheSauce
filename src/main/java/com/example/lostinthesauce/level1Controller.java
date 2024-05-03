@@ -53,9 +53,12 @@ public class level1Controller {
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
     //File path to the sound effect
-    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
-    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
-    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
+    String jumpSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
+    Media jumpSound = new Media(jumpSoundMP3); //Media object for the jump sound
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSound); //MediaPlayer to play the sound
+    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
+    Media bottleSound = new Media(bottleSoundMP3);
+    MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -161,7 +164,9 @@ public class level1Controller {
             isFalling = true;
             System.out.println("No Collision");
         }
-
+        if(isFalling && player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()){
+            jumpSoundPlayer.seek(Duration.ZERO);
+        }
         if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
             System.out.println("Level Beat!!!");
@@ -172,22 +177,32 @@ public class level1Controller {
             }
         }
         if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
+            bottleSoundPlayer.seek(Duration.ZERO);
+            bottleSoundPlayer.play();
             coin1.setVisible(false);
             System.out.println("Collected coin 1");
         }
         if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
+            bottleSoundPlayer.play();
+            bottleSoundPlayer.seek(Duration.ZERO);
             coin2.setVisible(false);
             System.out.println("Collected coin 2");
         }
         if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
+            bottleSoundPlayer.play();
+            bottleSoundPlayer.seek(Duration.ZERO);
             coin3.setVisible(false);
             System.out.println("Collected coin 3");
         }
         if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
+            bottleSoundPlayer.play();
+            bottleSoundPlayer.seek(Duration.ZERO);
             coin4.setVisible(false);
             System.out.println("Collected coin 4");
         }
         if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
+            bottleSoundPlayer.play();
+            bottleSoundPlayer.seek(Duration.ZERO);
             coin5.setVisible(false);
             System.out.println("Collected coin 5");
         }
