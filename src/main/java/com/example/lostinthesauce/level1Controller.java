@@ -1,8 +1,12 @@
 package com.example.lostinthesauce;
 
+import com.healthmarketscience.jackcess.impl.expr.StringValue;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -37,6 +41,15 @@ public class level1Controller {
     private Rectangle borderBottom;
     @FXML
     private Circle portal;
+    @FXML
+    public TextField timeCount;
+    public int time = 30;
+    private Timeline timeline;
+    public int coin1Value;
+    public int coin2Value;
+    public int coin3Value;
+    public int coin4Value;
+    public int coin5Value;
 
     @FXML
     void start(ActionEvent event) {
@@ -110,6 +123,8 @@ public class level1Controller {
         movementTimer.start();
         collisionTimer.start();
         collisionTimer2.start();
+        timer();
+        scoreInitial();
     }
 
     public void movementSetup() {
@@ -169,9 +184,10 @@ public class level1Controller {
         }
         if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
+            timeline.stop();
             System.out.println("Level Beat!!!");
             try {
-                switchToLevelSelect();
+                switchToPostLevelSelect1();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -181,30 +197,35 @@ public class level1Controller {
             bottleSoundPlayer.play();
             coin1.setVisible(false);
             System.out.println("Collected coin 1");
+            coin1Value = 100;
         }
         if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
             bottleSoundPlayer.play();
             bottleSoundPlayer.seek(Duration.ZERO);
             coin2.setVisible(false);
             System.out.println("Collected coin 2");
+            coin2Value = 100;
         }
         if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
             bottleSoundPlayer.play();
             bottleSoundPlayer.seek(Duration.ZERO);
             coin3.setVisible(false);
             System.out.println("Collected coin 3");
+            coin3Value = 100;
         }
         if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
             bottleSoundPlayer.play();
             bottleSoundPlayer.seek(Duration.ZERO);
             coin4.setVisible(false);
             System.out.println("Collected coin 4");
+            coin4Value = 100;
         }
         if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
             bottleSoundPlayer.play();
             bottleSoundPlayer.seek(Duration.ZERO);
             coin5.setVisible(false);
             System.out.println("Collected coin 5");
+            coin5Value = 100;
         }
     }
 
@@ -259,11 +280,38 @@ public class level1Controller {
         HelloApplication.setRoot("home-view");
         movementTimer.stop();
         collisionTimer.stop();
+        timeline.stop();
     }
     @FXML
     private void switchToLevelSelect() throws IOException {
         HelloApplication.setRoot("levelSelect-view");
         movementTimer.stop();
         collisionTimer.stop();
+        timeline.stop();
+    }
+    private void switchToPostLevelSelect1() throws IOException {
+        HelloApplication.setRoot("postLevel1-view");
+        movementTimer.stop();
+        collisionTimer.stop();
+        timeline.stop();
+    }
+    public void timer() {
+        timeCount.setText(String.valueOf(time));
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            time--;
+            timeCount.setText(String.valueOf(time));
+            if (time == 0) {
+                timeline.stop();
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+    public void scoreInitial() {
+        coin1Value = 0;
+        coin2Value = 0;
+        coin3Value = 0;
+        coin4Value = 0;
+        coin5Value = 0;
     }
 }
