@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class postLevel1Controller extends level1Controller {
+public class postLevel2Controller extends level2Controller{
     @FXML
     public TextField scoreCount;
 
@@ -25,6 +25,6 @@ public class postLevel1Controller extends level1Controller {
     }
     @FXML
     private void switchToLevel2() throws IOException {
-        HelloApplication.setRoot("level2-view");
+        HelloApplication.setRoot("level3-view");
     }
 }

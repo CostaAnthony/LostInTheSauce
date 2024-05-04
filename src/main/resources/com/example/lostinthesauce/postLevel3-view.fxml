@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.postLevel3Controller">
+    <children>
+        <TextField fx:id="scoreCount" layoutX="220.0" layoutY="102.0" />
+        <Text layoutX="139.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" wrappingWidth="80.7890625">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+        <Button layoutX="220.0" layoutY="187.0" mnemonicParsing="false" onAction="#switchToLevel2" text="Play Next Level" />
+        <Button layoutX="220.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchToLevelSelect" prefHeight="26.0" prefWidth="101.0" text="Level Select" />
+    </children>
+</AnchorPane>

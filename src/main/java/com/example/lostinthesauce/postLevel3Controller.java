@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class postLevel1Controller extends level1Controller {
+public class postLevel3Controller extends level3Controller{
     @FXML
     public TextField scoreCount;
 
