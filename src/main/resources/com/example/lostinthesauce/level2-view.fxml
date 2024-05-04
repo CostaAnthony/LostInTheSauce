@@ -550,6 +550,25 @@
             <Image url="@Assets/DirtBlockRight.png" />
          </image>
       </ImageView>
+      <Accordion>
+         <panes>
+            <TitledPane animated="false" text="untitled 1">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="untitled 2">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" text="untitled 3">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+         </panes>
+      </Accordion>
       <ImageView fx:id="player" fitHeight="66.0" fitWidth="68.0" layoutX="212.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/Character.png" />
@@ -1275,25 +1294,6 @@
             <Image url="@Assets/tile_0008.png" />
          </image>
       </ImageView>
-      <Accordion>
-         <panes>
-            <TitledPane animated="false" text="untitled 1">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-            <TitledPane animated="false" text="untitled 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-            <TitledPane animated="false" text="untitled 3">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-         </panes>
-      </Accordion>
       <ImageView fx:id="coin1" fitHeight="90.0" fitWidth="25.0" layoutX="486.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/hot%20sauce.png" />
