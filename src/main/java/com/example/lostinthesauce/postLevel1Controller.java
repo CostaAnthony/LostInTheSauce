@@ -5,19 +5,9 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class postLevel1Controller extends level1Controller {
-    @FXML
-    public TextField scoreCount;
-
+public class postLevel1Controller {
     public void initialize(){
-        scoreFinal();
-    }
-    public void scoreFinal(){
-        int totalScore = addScore();
-        scoreCount.setText(String.valueOf(totalScore));
-    }
-    public int addScore(){
-        return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
+
     }
     @FXML
     private void switchToLevelSelect() throws IOException {

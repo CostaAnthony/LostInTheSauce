@@ -49,6 +49,8 @@ public class level3Controller {
     @FXML
     private Circle portal;
     @FXML
+    public TextField scoreCount;
+    @FXML
     public TextField timeCount;
     public int time = 30;
     private Timeline timeline;
@@ -211,6 +213,7 @@ public class level3Controller {
         if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
             System.out.println("Level Beat!!!");
+            scoreFinal();
             try {
                 switchToLevelSelect();
             } catch (IOException e) {
@@ -415,4 +418,11 @@ public class level3Controller {
         coin4Value = 0;
         coin5Value = 0;
     }
+    public void scoreFinal(){
+        int totalScore = addScore();
+        scoreCount.setText(String.valueOf(totalScore));
     }
+    public int addScore(){
+        return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
+    }
+}

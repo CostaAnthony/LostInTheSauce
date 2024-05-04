@@ -42,6 +42,8 @@ public class level1Controller {
     @FXML
     private Circle portal;
     @FXML
+    public TextField scoreCount;
+    @FXML
     public TextField timeCount;
     public int time = 30;
     private Timeline timeline;
@@ -186,6 +188,7 @@ public class level1Controller {
             isFalling = false;
             timeline.stop();
             System.out.println("Level Beat!!!");
+            scoreFinal();
             try {
                 switchToPostLevelSelect1();
             } catch (IOException e) {
@@ -290,10 +293,10 @@ public class level1Controller {
         timeline.stop();
     }
     private void switchToPostLevelSelect1() throws IOException {
-        HelloApplication.setRoot("postLevel1-view");
         movementTimer.stop();
         collisionTimer.stop();
         timeline.stop();
+        HelloApplication.setRoot("postLevel1-view");
     }
     public void timer() {
         timeCount.setText(String.valueOf(time));
@@ -313,5 +316,12 @@ public class level1Controller {
         coin3Value = 0;
         coin4Value = 0;
         coin5Value = 0;
+    }
+    public void scoreFinal(){
+        int totalScore = addScore();
+        scoreCount.setText(String.valueOf(totalScore));
+    }
+    public int addScore(){
+        return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
     }
 }
