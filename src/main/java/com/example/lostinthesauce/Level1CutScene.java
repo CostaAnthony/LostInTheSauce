@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,10 +13,11 @@ import java.net.URL;
 public class Level1CutScene {
     @FXML
     private MediaView mediaView;
+    private MediaPlayer mediaPlayer;
     public void initialize() {
         String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/lostInSauceTestVideo.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(media);
 
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
@@ -29,7 +31,11 @@ public class Level1CutScene {
                 }
         );
     }
-
+    @FXML
+    public void handleSkipButton() {
+        Duration totalDuration = mediaPlayer.getTotalDuration();
+        mediaPlayer.seek(totalDuration);
+    }
     @FXML
     private void switchToLevel1() throws IOException {
         HelloApplication.setRoot("level1-view");
