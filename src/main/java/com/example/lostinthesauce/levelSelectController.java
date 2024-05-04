@@ -6,7 +6,7 @@ import java.io.IOException;
 public class levelSelectController {
     @FXML
     private void switchToLevel1() throws IOException {
-        HelloApplication.setRoot("level1-view");
+        HelloApplication.setRoot("level1CutScene-view");
     }
     @FXML
     private void switchToLevel2() throws IOException {
