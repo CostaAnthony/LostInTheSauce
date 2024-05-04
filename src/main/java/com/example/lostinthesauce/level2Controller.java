@@ -28,15 +28,15 @@ public class level2Controller {
     @FXML
     private Rectangle platform5;
     @FXML
-    private Circle coin1;
+    private ImageView coin1;
     @FXML
-    private Circle coin2;
+    private ImageView coin2;
     @FXML
-    private Circle coin3;
+    private ImageView coin3;
     @FXML
-    private Circle coin4;
+    private ImageView coin4;
     @FXML
-    private Circle coin5;
+    private ImageView coin5;
     @FXML
     private Rectangle borderBottom;
     @FXML
@@ -201,7 +201,7 @@ public class level2Controller {
         Rectangle[] platforms = {platform1, platform2, platform3, platform4, platform5};
 
         for (Rectangle platform : platforms) {
-            if (player.getBoundsInParent().intersects(platform.getBoundsInParent()) && player.getLayoutY() > platform.getLayoutY() - 40) {
+            if (player.getBoundsInParent().intersects(platform.getBoundsInParent()) && player.getLayoutY() > platform.getLayoutY() - player.getFitHeight()) {
                 double platformRight = platform.getLayoutX() + platform.getWidth();
                 double platformLeft = platform.getLayoutX();
 
