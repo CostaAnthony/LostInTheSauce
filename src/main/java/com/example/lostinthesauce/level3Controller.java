@@ -223,7 +223,7 @@ public class level3Controller {
             System.out.println("Level Beat!!!");
             scoreFinal();
             try {
-                switchToLevelSelect();
+                switchToPostLevelSelect3CutScene();
             }catch (IOException e) {
                 e.printStackTrace();
             }
@@ -313,8 +313,8 @@ public class level3Controller {
             timeline.stop();
             musicPlayerLevel3.stop();
         }
-    private void switchToPostLevelSelect3() throws IOException {
-        HelloApplication.setRoot("postLevel3-view");
+    private void switchToPostLevelSelect3CutScene() throws IOException {
+        HelloApplication.setRoot("postLevel3CutScene-view");
         movementTimer.stop();
         collisionTimer.stop();
         timeline.stop();
