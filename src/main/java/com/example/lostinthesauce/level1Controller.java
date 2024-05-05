@@ -29,7 +29,6 @@ public class level1Controller {
     private Rectangle platform1;
     @FXML
     private Rectangle platform2;
-    private coin coinInstance;
     @FXML
     private ImageView coin1;
     @FXML
@@ -73,11 +72,12 @@ public class level1Controller {
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
     //File path to the sound effect
-    String jumpSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
-    Media jumpSound = new Media(jumpSoundMP3); //Media object for the jump sound
+    String userHome = System.getProperty("user.home");
+    String jumpSoundPath = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3";
+    Media jumpSound = new Media(new File(jumpSoundPath).toURI().toString());
     MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSound); //MediaPlayer to play the sound
-    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
-    Media bottleSound = new Media(bottleSoundMP3);
+    String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
+    Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {
@@ -185,7 +185,6 @@ public class level1Controller {
         if(isFalling && player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()){
             jumpSoundPlayer.seek(Duration.ZERO);
         }
-        if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
 
         if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
