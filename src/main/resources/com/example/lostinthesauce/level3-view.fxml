@@ -1505,5 +1505,8 @@
             <Image url="@Assets/TreeTop.png" />
          </image>
       </ImageView>
+      <TextField fx:id="timeCount" layoutX="74.0" layoutY="72.0" />
+      <TextField fx:id="scoreCount" layoutX="74.0" layoutY="128.0" />
+      <TextField fx:id="levelFailed" layoutX="179.0" layoutY="220.0" prefHeight="124.0" prefWidth="261.0" />
     </children>
 </Pane>

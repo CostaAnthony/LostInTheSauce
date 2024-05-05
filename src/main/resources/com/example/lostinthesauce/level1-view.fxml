@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -1374,5 +1375,8 @@
             <Image url="@Assets/Portal.png" />
          </image>
       </ImageView>
+     <TextField fx:id="timeCount" editable="false" layoutX="69.0" layoutY="61.0" prefHeight="25.0" prefWidth="243.0" />
+     <TextField fx:id="scoreCount" editable="false" layoutX="70.0" layoutY="99.0" prefHeight="25.0" prefWidth="241.0" />
+     <TextField fx:id="levelFailed" editable="false" layoutX="222.0" layoutY="226.0" prefHeight="165.0" prefWidth="444.0" />
    </children>
 </Pane>
