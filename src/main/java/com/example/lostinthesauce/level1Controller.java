@@ -293,6 +293,11 @@ public class level1Controller {
             timeCount.setText(String.valueOf(time));
             if (time == 0) {
                 timeline.stop();
+                try {
+                    resetLevel();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 levelFailed.setText("Level Failed!");
                 hideLevelFailedAfterDelay();
             }
@@ -310,6 +315,7 @@ public class level1Controller {
     public void scoreFinal(){
         int totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
+        System.out.println("Total Score is: " + totalScore);
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
@@ -317,12 +323,7 @@ public class level1Controller {
     private void hideLevelFailedAfterDelay() {
         Timeline hideTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             levelFailed.setText("");
-            try {
-                resetLevel();
-                System.out.println("Level reset");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println("Level reset");
         }));
         hideTimeline.play();
     }
