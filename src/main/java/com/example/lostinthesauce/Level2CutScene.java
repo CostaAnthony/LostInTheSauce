@@ -32,8 +32,13 @@ public class Level2CutScene {
     }
     @FXML
     public void handleSkipButton() {
-        Duration totalDuration = mediaPlayerLevel2.getTotalDuration();
-        mediaPlayerLevel2.seek(totalDuration);
+        mediaPlayerLevel2.stop();
+        mediaPlayerLevel2.seek(Duration.ZERO);
+        try {
+            switchToLevel2();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     private void switchToLevel2() throws IOException {

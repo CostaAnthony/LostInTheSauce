@@ -34,8 +34,13 @@ public class Level3CutScene {
 
     @FXML
     public void handleSkipButton() {
-        Duration totalDuration = mediaPlayerLevel3.getTotalDuration();
-        mediaPlayerLevel3.seek(totalDuration);
+        mediaPlayerLevel3.stop();
+        mediaPlayerLevel3.seek(Duration.ZERO);
+        try {
+            switchToLevel3();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
