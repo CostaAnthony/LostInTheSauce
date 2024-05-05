@@ -3,32 +3,35 @@ package com.example.lostinthesauce;
 import javafx.fxml.FXML;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import java.io.IOException;
 
 public class level1Controller {
+
     @FXML
-    private Pane scene;
+    private Pane scene = new Pane();
     @FXML
-    private Rectangle player;
+    private ImageView player;
     @FXML
     private Rectangle platform1;
     @FXML
     private Rectangle platform2;
     private coin coinInstance;
     @FXML
-    private Circle coin1;
+    private ImageView coin1;
     @FXML
-    private Circle coin2;
+    private ImageView coin2;
     @FXML
-    private Circle coin3;
+    private ImageView coin3;
     @FXML
-    private Circle coin4;
+    private ImageView coin4;
     @FXML
-    private Circle coin5;
+    private ImageView coin5;
     @FXML
     private Rectangle borderBottom;
     @FXML
@@ -36,8 +39,8 @@ public class level1Controller {
 
     @FXML
     void start(ActionEvent event) {
-        player.setLayoutY(651);
-        player.setLayoutX(181);
+        player.setLayoutY(660);
+        player.setLayoutX(128);
     }
 
     private boolean wPressed;
@@ -121,42 +124,38 @@ public class level1Controller {
             if (e.getCode() == KeyCode.A) {
                 aPressed = false;
             }
-
             if (e.getCode() == KeyCode.D) {
                 dPressed = false;
             }
         });
     }
 
-    public void checkCollision(){
+    public void checkCollision() {
 
         if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())&&player.getLayoutY() < platform1.getLayoutY()){
-            isFalling = false;
-            player.setLayoutY(platform1.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform1);
         }
         else if(player.getBoundsInParent().intersects(platform2.getBoundsInParent())&&player.getLayoutY() < platform2.getLayoutY()){
-            isFalling = false;
-            player.setLayoutY(platform2.getLayoutY()-40);
-            System.out.println("Collision");
+            fixPlayerDipping(platform2);
         }
         else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
-            player.setLayoutY(651);
-            player.setLayoutX(181);
+            player.setLayoutY(650);
+            player.setLayoutX(128);
             System.out.println("Fell into the Void");
         }
+
         else{
             isFalling = true;
             System.out.println("No Collision");
         }
 
-        if (player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
+        if(player.getBoundsInParent().intersects(portal.getBoundsInParent())) {
             isFalling = false;
             System.out.println("Level Beat!!!");
             try {
                 switchToLevelSelect();
-            } catch (IOException e) {
+            }catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -189,7 +188,7 @@ public class level1Controller {
 
     public void checkCollision2() {
         double playerLeft = player.getLayoutX();
-        double playerRight = player.getLayoutX() + player.getWidth();
+        double playerRight = player.getLayoutX() + player.getFitWidth();
 
         Rectangle[] platforms = {platform1, platform2};
 
@@ -200,7 +199,7 @@ public class level1Controller {
 
                 if (playerRight > platformLeft && playerLeft < platformLeft) {
                     // Player is colliding with the left side of the platform
-                    player.setLayoutX(platformLeft - player.getWidth());
+                    player.setLayoutX(platformLeft - player.getFitWidth());
                     System.out.println("LEFT WALL!?!?????????????????????");
                 } else if (playerLeft < platformRight && playerRight > platformRight) {
                     // Player is colliding with the right side of the platform
@@ -210,6 +209,14 @@ public class level1Controller {
 
             }
         }
+    }
+
+
+
+    public void fixPlayerDipping(Rectangle platform){
+        isFalling = false;
+        player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
+        System.out.println("Collision");
     }
     @FXML
     private void switchToHome() throws IOException {

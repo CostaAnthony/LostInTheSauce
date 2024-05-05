@@ -30,17 +30,18 @@ public class level3Controller {
     @FXML
     private Rectangle platform6;
     @FXML
+    private ImageView coin1;
+
     private coin coinInstance;
+
     @FXML
-    private Circle coin1;
+    private ImageView coin2;
     @FXML
-    private Circle coin2;
+    private ImageView coin3;
     @FXML
-    private Circle coin3;
+    private ImageView coin4;
     @FXML
-    private Circle coin4;
-    @FXML
-    private Circle coin5;
+    private ImageView coin5;
     @FXML
     private Rectangle borderBottom;
     @FXML

@@ -1,20 +1,27 @@
 package com.example.lostinthesauce;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class coin {
-    private Circle circle;
+    private ImageView circle;
+
+    private Image sauce = new Image("@Assets/hot sauce.png");
     private boolean collected;
     private int touchCount;
 
     public coin(double centerX, double centerY) {
-        circle = new Circle(centerX, centerY, 20, Color.GOLD);
+        circle = new ImageView();
+        circle.setImage(sauce);
+        circle.setLayoutX(centerX);
+        circle.setLayoutX(centerY);
         this.collected = false;
         this.touchCount = 0;
     }
 
-    public Circle getCircle() {
+    public ImageView getCircle() {
         return circle;
     }
 
