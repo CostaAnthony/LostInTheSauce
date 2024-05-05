@@ -50,6 +50,8 @@ public class level2Controller {
     public TextField scoreCount;
     @FXML
     public TextField timeCount;
+    @FXML
+    public TextField levelFailed;
     public int time = 30;
     private Timeline timeline;
     public int coin1Value;
@@ -380,6 +382,8 @@ public class level2Controller {
             timeCount.setText(String.valueOf(time));
             if (time == 0) {
                 timeline.stop();
+                levelFailed.setText("Level Failed!");
+                hideLevelFailedAfterDelay();
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -398,5 +402,29 @@ public class level2Controller {
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
+    }
+    private void hideLevelFailedAfterDelay() {
+        Timeline hideTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+            levelFailed.setText("");
+            try {
+                resetLevel();
+                System.out.println("Level reset");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }));
+        hideTimeline.play();
+    }
+    private void resetLevel() throws IOException {
+        player.setLayoutY(650);
+        player.setLayoutX(212);
+        coin1.setVisible(true);
+        coin2.setVisible(true);
+        coin3.setVisible(true);
+        coin4.setVisible(true);
+        coin5.setVisible(true);
+        time = 30;
+        timer();
+        levelFailed.setText("");
     }
 }

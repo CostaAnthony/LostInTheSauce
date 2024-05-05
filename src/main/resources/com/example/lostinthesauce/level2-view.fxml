@@ -117,5 +117,6 @@
       </Circle>
       <TextField fx:id="timeCount" layoutX="91.0" layoutY="171.0" />
       <TextField fx:id="scoreCount" layoutX="91.0" layoutY="255.0" />
+      <TextField fx:id="levelFailed" layoutX="329.0" layoutY="281.0" prefHeight="192.0" prefWidth="235.0" />
    </children>
 </Pane>
