@@ -62,6 +62,7 @@ public class level2Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    private MediaPlayer musicPlayerLevel2;
     @FXML
     void start(ActionEvent event) {
         player.setLayoutY(660);
@@ -76,12 +77,12 @@ public class level2Controller {
     private final double GRAVITY = -0.7;
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
-    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
-    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
-    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
-
-    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
-    Media bottleSound = new Media(bottleSoundMP3);
+    String userHome = System.getProperty("user.home");
+    String jumpSoundPath = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3";
+    Media jumpSound = new Media(new File(jumpSoundPath).toURI().toString());
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSound); //MediaPlayer to play the sound
+    String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
+    Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {
@@ -136,6 +137,17 @@ public class level2Controller {
         collisionTimer2.start();
         timer();
         scoreInitial();
+        String level2Music = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level2Music.mp3";
+        Media level2Sound = new Media(new File(level2Music).toURI().toString());
+        musicPlayerLevel2 = new MediaPlayer(level2Sound);
+        musicPlayerLevel2.play();
+
+        musicPlayerLevel2.setOnEndOfMedia(
+                () -> {
+                    musicPlayerLevel2.seek(Duration.ZERO);
+                    musicPlayerLevel2.play();
+                }
+        );
     }
 
     public void movementSetup() {
@@ -281,6 +293,7 @@ public class level2Controller {
     private void switchToHome() throws IOException {
         HelloApplication.setRoot("home-view");
         movementTimer.stop();
+        musicPlayerLevel2.stop();
         collisionTimer.stop();
         timeline.stop();
     }
@@ -289,12 +302,14 @@ public class level2Controller {
         HelloApplication.setRoot("levelSelect-view");
         movementTimer.stop();
         collisionTimer.stop();
+        musicPlayerLevel2.stop();
         timeline.stop();
     }
     private void switchToPostLevelSelect2() throws IOException {
         HelloApplication.setRoot("postLevel2-view");
         movementTimer.stop();
         collisionTimer.stop();
+        musicPlayerLevel2.stop();
         timeline.stop();
     }
     public void timer() {

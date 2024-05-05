@@ -56,6 +56,7 @@ public class level1Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    private MediaPlayer musicPlayerLevel1;
 
     @FXML
     void start(ActionEvent event) {
@@ -132,8 +133,18 @@ public class level1Controller {
         collisionTimer2.start();
         timer();
         scoreInitial();
-    }
+        String level1Music = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Music.mp3";
+        Media level1Sound = new Media(new File(level1Music).toURI().toString());
+        musicPlayerLevel1 = new MediaPlayer(level1Sound);
+        musicPlayerLevel1.play();
 
+            musicPlayerLevel1.setOnEndOfMedia(
+                    () -> {
+                        musicPlayerLevel1.seek(Duration.ZERO);
+                        musicPlayerLevel1.play();
+                    }
+            );
+    }
     public void movementSetup() {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.W || e.getCode() == KeyCode.SPACE) {
@@ -259,8 +270,6 @@ public class level1Controller {
         }
     }
 
-
-
     public void fixPlayerDipping(Rectangle platform){
         isFalling = false;
         player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
@@ -284,6 +293,7 @@ public class level1Controller {
         movementTimer.stop();
         collisionTimer.stop();
         timeline.stop();
+        musicPlayerLevel1.stop();
         HelloApplication.setRoot("postLevel1-view");
     }
     public void timer() {

@@ -45,11 +45,13 @@ public class HomeController {
     private void switchToSignIn() throws IOException {
         HelloApplication.setRoot("signin-view");
         mediaPlayer.stop();
+        musicPlayer.stop();
     }
     @FXML
     private void switchToLevelSelect() throws IOException {
         HelloApplication.setRoot("levelSelect-view");
         mediaPlayer.stop();
+        musicPlayer.stop();
     }
 
 }
