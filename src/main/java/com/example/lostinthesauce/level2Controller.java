@@ -64,8 +64,8 @@ public class level2Controller {
     public int coin5Value;
     @FXML
     void start(ActionEvent event) {
-        player.setLayoutY(660);
-        player.setLayoutX(128);
+        player.setLayoutY(623);
+        player.setLayoutX(220);
     }
 
     private boolean wPressed;
@@ -76,12 +76,12 @@ public class level2Controller {
     private final double GRAVITY = -0.7;
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
-    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
-    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
-    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
-
-    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
-    Media bottleSound = new Media(bottleSoundMP3);
+    String userHome = System.getProperty("user.home");
+    String jumpSoundPath = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3";
+    Media jumpSound = new Media(new File(jumpSoundPath).toURI().toString());
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSound); //MediaPlayer to play the sound
+    String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
+    Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {
@@ -110,7 +110,6 @@ public class level2Controller {
                 jumpSoundPlayer.play();
                 //Resets the jump sound back to the beginning of the track
                 jumpSoundPlayer.seek(Duration.ZERO);
-                velY += 10.5;
                 velY += 10.5;
             }
 
@@ -186,8 +185,8 @@ public class level2Controller {
         }
         else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
-            player.setLayoutY(650);
-            player.setLayoutX(128);
+            player.setLayoutY(623);
+            player.setLayoutX(220);
             System.out.println("Fell into the Void");
         }
 

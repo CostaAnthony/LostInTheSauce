@@ -82,11 +82,12 @@ public class level3Controller {
     private final double MAX_SPEED = 30;
     private boolean isFalling = false;
 
-    String jumpSoundPath = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3").toURI().toString();
-    Media jumpSoundMedia = new Media(jumpSoundPath); //Media object for the jump sound
-    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSoundMedia); //MediaPlayer to play the sound
-    String bottleSoundMP3 = new File("/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3").toURI().toString();
-    Media bottleSound = new Media(bottleSoundMP3);
+    String userHome = System.getProperty("user.home");
+    String jumpSoundPath = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/Jump.mp3";
+    Media jumpSound = new Media(new File(jumpSoundPath).toURI().toString());
+    MediaPlayer jumpSoundPlayer = new MediaPlayer(jumpSound); //MediaPlayer to play the sound
+    String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
+    Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
 
     AnimationTimer movementTimer = new AnimationTimer() {

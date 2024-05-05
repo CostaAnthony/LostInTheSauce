@@ -14,8 +14,9 @@ public class HomeController {
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
     public void initialize() {
-        String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/HomePageFinal.mp4";
-        Media media = new Media(new File(videoFile).toURI().toString());
+        String userHome = System.getProperty("user.home");
+        String videoFilePath = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/HomePageFinal.mp4";
+        Media media = new Media(new File(videoFilePath).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
         mediaView.setMediaPlayer(mediaPlayer);
