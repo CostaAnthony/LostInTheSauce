@@ -27,6 +27,7 @@ public class level2Controller {
     private Rectangle platform4;
     @FXML
     private Rectangle platform5;
+    private coin coinInstance;
     @FXML
     private Circle coin1;
     @FXML
@@ -103,6 +104,7 @@ public class level2Controller {
         movementTimer.start();
         collisionTimer.start();
         collisionTimer2.start();
+        coinInstance = new coin(coin1.getCenterX(), coin1.getCenterY());
     }
 
     public void movementSetup() {
@@ -174,22 +176,27 @@ public class level2Controller {
         }
         if (player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()) {
             coin1.setVisible(false);
+            coinInstance.incrementTouchCount(); // Increment touch count when coin is collected
             System.out.println("Collected coin 1");
         }
         if (player.getBoundsInParent().intersects(coin2.getBoundsInParent()) && coin2.isVisible()) {
             coin2.setVisible(false);
+            coinInstance.incrementTouchCount(); // Increment touch count when coin is collected
             System.out.println("Collected coin 2");
         }
         if (player.getBoundsInParent().intersects(coin3.getBoundsInParent()) && coin3.isVisible()) {
             coin3.setVisible(false);
+            coinInstance.incrementTouchCount(); // Increment touch count when coin is collected
             System.out.println("Collected coin 3");
         }
         if (player.getBoundsInParent().intersects(coin4.getBoundsInParent()) && coin4.isVisible()) {
             coin4.setVisible(false);
+            coinInstance.incrementTouchCount(); // Increment touch count when coin is collected
             System.out.println("Collected coin 4");
         }
         if (player.getBoundsInParent().intersects(coin5.getBoundsInParent()) && coin5.isVisible()) {
             coin5.setVisible(false);
+            coinInstance.incrementTouchCount(); // Increment touch count when coin is collected
             System.out.println("Collected coin 5");
         }
     }
