@@ -34,7 +34,6 @@ public class level2Controller {
     private Rectangle platform4;
     @FXML
     private Rectangle platform5;
-    private coin coinInstance;
     @FXML
     private ImageView coin1;
     @FXML
@@ -108,10 +107,12 @@ public class level2Controller {
             }
             if (wPressed && !isFalling) {
                 //Plays the jump sound effect
+                jumpSoundPlayer.setVolume(0.5);
                 jumpSoundPlayer.play();
                 //Resets the jump sound back to the beginning of the track
                 jumpSoundPlayer.seek(Duration.ZERO);
                 velY += 10.5;
+                System.out.println("JUMP SOUND");
             }
 
         }

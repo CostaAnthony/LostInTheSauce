@@ -18,6 +18,7 @@ public class PostLevel3CutScene {
         String videoFilePath = "/com/example/lostinthesauce/" + videoFileName;
         Media media = new Media(getClass().getResource(videoFilePath).toString());
         mediaPlayerPostLevel3 = new MediaPlayer(media);
+        mediaPlayerPostLevel3.seek(Duration.ZERO);
 
 
         mediaViewPostLevel3.setMediaPlayer(mediaPlayerPostLevel3);

@@ -38,9 +38,6 @@ public class level3Controller {
     private Rectangle platform6;
     @FXML
     private ImageView coin1;
-
-    private coin coinInstance;
-
     @FXML
     private ImageView coin2;
     @FXML
@@ -51,6 +48,8 @@ public class level3Controller {
     private ImageView coin5;
     @FXML
     private Rectangle borderBottom;
+    @FXML
+    private Rectangle spikes;
     @FXML
     private Circle portal;
     @FXML
@@ -204,6 +203,7 @@ public class level3Controller {
             else if(player.getBoundsInParent().intersects(platform6.getBoundsInParent())&&player.getLayoutY() < platform6.getLayoutY()) {
                 fixPlayerDipping(platform6);
             }
+
             else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
                 isFalling = false;
                 player.setLayoutY(650);
@@ -214,6 +214,12 @@ public class level3Controller {
             else{
                 isFalling = true;
                 System.out.println("No Collision");
+            }
+            if(player.getBoundsInParent().intersects(spikes.getBoundsInParent())) {
+            isFalling = false;
+            player.setLayoutY(650);
+            player.setLayoutX(128);
+            System.out.println("HaHa You Died");
             }
         if(isFalling && player.getBoundsInParent().intersects(coin1.getBoundsInParent()) && coin1.isVisible()){
             jumpSoundPlayer.seek(Duration.ZERO);
