@@ -14,9 +14,11 @@ public class PostLevel3CutScene {
     private MediaView mediaViewPostLevel3;
     private MediaPlayer mediaPlayerPostLevel3;
     public void initialize() {
-        String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/postLevel3.mp4";
-        Media media = new Media(new File(videoFile).toURI().toString());
+        String videoFileName = "postLevel3.mp4";
+        String videoFilePath = "/com/example/lostinthesauce/" + videoFileName;
+        Media media = new Media(getClass().getResource(videoFilePath).toString());
         mediaPlayerPostLevel3 = new MediaPlayer(media);
+
 
         mediaViewPostLevel3.setMediaPlayer(mediaPlayerPostLevel3);
         mediaPlayerPostLevel3.play();
