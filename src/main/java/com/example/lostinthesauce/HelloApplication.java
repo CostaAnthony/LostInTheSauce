@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         fstore = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
 
-        scene = new Scene(loadFXML("home-view"), 1705, 890);
+        scene = new Scene(loadFXML("home-view"), 1440, 840);
         stage.setScene(scene);
         stage.show();
     }

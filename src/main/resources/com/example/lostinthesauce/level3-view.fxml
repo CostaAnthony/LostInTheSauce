@@ -8,6 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
+<?import javafx.scene.control.TextField?>
 <Pane fx:id="scene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.level3Controller">
     <children>
 

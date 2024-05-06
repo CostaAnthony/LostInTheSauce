@@ -65,8 +65,8 @@ public class level2Controller {
     private MediaPlayer musicPlayerLevel2;
     @FXML
     void start(ActionEvent event) {
-        player.setLayoutY(660);
-        player.setLayoutX(128);
+        player.setLayoutY(623);
+        player.setLayoutX(220);
     }
 
     private boolean wPressed;
@@ -111,7 +111,6 @@ public class level2Controller {
                 jumpSoundPlayer.play();
                 //Resets the jump sound back to the beginning of the track
                 jumpSoundPlayer.seek(Duration.ZERO);
-                velY += 10.5;
                 velY += 10.5;
             }
 
@@ -198,8 +197,8 @@ public class level2Controller {
         }
         else if(player.getBoundsInParent().intersects(borderBottom.getBoundsInParent())) {
             isFalling = false;
-            player.setLayoutY(650);
-            player.setLayoutX(128);
+            player.setLayoutY(623);
+            player.setLayoutX(220);
             System.out.println("Fell into the Void");
         }
 

@@ -36,9 +36,13 @@ public class SignInController {
     @FXML
     public TextField passwordTextField;
 
-    public User currentUser;
+    public User currentUser = new User("", "");
 
     private boolean key;
+
+    public String userUsername = "";
+
+
 
     @FXML
     private void switchToHomeView() throws IOException {
@@ -47,7 +51,7 @@ public class SignInController {
 
     public void addData() {
 
-        DocumentReference docRef = HelloApplication.fstore.collection("Users").document(UUID.randomUUID().toString());
+        DocumentReference docRef = HelloApplication.fstore.collection("Users").document(usernameTextfield.getText()+passwordTextField.getText());
 
         Map<String, Object> data = new HashMap<>();
         data.put("Username", usernameTextfield.getText());
@@ -60,22 +64,62 @@ public class SignInController {
 
         //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);
+
+        usernameTextfield.clear();
+        passwordTextField.clear();
     }
 
 
     public void initUser(){
+        key = false;
 
+        //asynchronously retrieve all documents
+        ApiFuture<QuerySnapshot> future =  HelloApplication.fstore.collection("Users").get();
+        // future.get() blocks on response
+        List<QueryDocumentSnapshot> documents;
+        try {
+            documents = future.get().getDocuments();
+            if (documents.size() > 0) {
+                //System.out.println("Getting (reading) data from firabase database....");
+                for (QueryDocumentSnapshot document : documents) {
+                    if (usernameTextfield.getText().equals(document.getData().get("Username")) && passwordTextField.getText().equals(document.getData().get("Password"))) {
+                        //currentUser = new User(String.valueOf(document.getData().get("Username")),String.valueOf(document.getData().get("Password")));
+
+                        //userUsername = String.valueOf(document.getData().get("Username"));
+                                currentUser.setUsername(String.valueOf(document.getData().get("Username")));
+                                currentUser.setPassword(String.valueOf(document.getData().get("Password")));
+                    }
+                }
+            }
+            key = true;
+        }catch (InterruptedException | ExecutionException ex)
+        {
+            ex.printStackTrace();
+        }
+
+        //System.out.println(userUsername);
+        //String currUserName = currentUser.getUsername();
+        //System.out.println(currUserName);
+
+        usernameTextfield.clear();
+        passwordTextField.clear();
     }
+
 
     public void deleteData(){
         HelloApplication.fstore.collection("Users").document("85ac8fb7-6b6f-4524-a373-2150dfb0534b")
                 .delete();
     }
 
+
+
+
     public void updateData(){
-        HelloApplication.fstore.collection("Users").document("ad85b608-7f0b-4625-bde9-848b1e1f67ff")
+        HelloApplication.fstore.collection("Users").document(currentUser.getUsername()+currentUser.getPassword())
                 .update("Customization", 3);
     }
+
+
 
     public void readData(){
 

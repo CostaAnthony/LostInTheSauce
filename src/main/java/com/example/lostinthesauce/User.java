@@ -15,6 +15,7 @@ public class User {
 
         private int charCustom;
 
+        /*
         public User(String username, String password, int hiscsore1, int hiscore2, int hiscore3, int hiscoreTotal, int charCustom){
             this.charCustom = charCustom;
             this.hiscore1 = hiscsore1;
@@ -23,6 +24,13 @@ public class User {
             this.hiscoreTotal = hiscoreTotal;
             this.username=username;
             this.password=password;
+        }
+
+         */
+
+        public User(String username, String password){
+            this.username = username;
+            this.password = password;
         }
 
 
@@ -82,4 +90,9 @@ public class User {
         public void setCharCustom(int charCustom) {
             this.charCustom = charCustom;
         }
+
+    @Override
+    public String toString() {
+        return username + " " + password;
+    }
 }
