@@ -56,6 +56,7 @@ public class level1Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    private MediaPlayer musicPlayerLevel1;
 
     @FXML
     void start(ActionEvent event) {
@@ -132,8 +133,18 @@ public class level1Controller {
         collisionTimer2.start();
         timer();
         scoreInitial();
-    }
+        String level1Music = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Music.mp3";
+        Media level1Sound = new Media(new File(level1Music).toURI().toString());
+        musicPlayerLevel1 = new MediaPlayer(level1Sound);
+        musicPlayerLevel1.play();
 
+            musicPlayerLevel1.setOnEndOfMedia(
+                    () -> {
+                        musicPlayerLevel1.seek(Duration.ZERO);
+                        musicPlayerLevel1.play();
+                    }
+            );
+    }
     public void movementSetup() {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.W || e.getCode() == KeyCode.SPACE) {
@@ -259,8 +270,6 @@ public class level1Controller {
         }
     }
 
-
-
     public void fixPlayerDipping(Rectangle platform){
         isFalling = false;
         player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
@@ -284,6 +293,7 @@ public class level1Controller {
         movementTimer.stop();
         collisionTimer.stop();
         timeline.stop();
+        musicPlayerLevel1.stop();
         HelloApplication.setRoot("postLevel1-view");
     }
     public void timer() {
@@ -293,6 +303,11 @@ public class level1Controller {
             timeCount.setText(String.valueOf(time));
             if (time == 0) {
                 timeline.stop();
+                try {
+                    resetLevel();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 levelFailed.setText("Level Failed!");
                 hideLevelFailedAfterDelay();
             }
@@ -310,6 +325,7 @@ public class level1Controller {
     public void scoreFinal(){
         int totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
+        System.out.println("Total Score is: " + totalScore);
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
@@ -317,12 +333,7 @@ public class level1Controller {
     private void hideLevelFailedAfterDelay() {
         Timeline hideTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             levelFailed.setText("");
-            try {
-                resetLevel();
-                System.out.println("Level reset");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println("Level reset");
         }));
         hideTimeline.play();
     }

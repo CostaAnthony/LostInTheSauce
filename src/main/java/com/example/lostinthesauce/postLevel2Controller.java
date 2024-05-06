@@ -15,6 +15,6 @@ public class postLevel2Controller{
     }
     @FXML
     private void switchToLevel3() throws IOException {
-        HelloApplication.setRoot("level3-view");
+        HelloApplication.setRoot("level3CutScene-view");
     }
 }

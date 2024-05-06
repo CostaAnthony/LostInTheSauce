@@ -66,6 +66,7 @@ public class level3Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    private MediaPlayer musicPlayerLevel3;
 
     @FXML
     void start(ActionEvent event) {
@@ -142,6 +143,17 @@ public class level3Controller {
         collisionTimer2.start();
         timer();
         scoreInitial();
+        String level3Music = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level3Music.mp3";
+        Media level3Sound = new Media(new File(level3Music).toURI().toString());
+        musicPlayerLevel3 = new MediaPlayer(level3Sound);
+        musicPlayerLevel3.play();
+
+        musicPlayerLevel3.setOnEndOfMedia(
+                () -> {
+                    musicPlayerLevel3.seek(Duration.ZERO);
+                    musicPlayerLevel3.play();
+                }
+        );
     }
 
     public void movementSetup() {
@@ -211,7 +223,7 @@ public class level3Controller {
             System.out.println("Level Beat!!!");
             scoreFinal();
             try {
-                switchToLevelSelect();
+                switchToPostLevelSelect3CutScene();
             }catch (IOException e) {
                 e.printStackTrace();
             }
@@ -291,6 +303,7 @@ public class level3Controller {
             movementTimer.stop();
             collisionTimer.stop();
             timeline.stop();
+            musicPlayerLevel3.stop();
         }
         @FXML
         private void switchToLevelSelect() throws IOException {
@@ -298,12 +311,14 @@ public class level3Controller {
             movementTimer.stop();
             collisionTimer.stop();
             timeline.stop();
+            musicPlayerLevel3.stop();
         }
-    private void switchToPostLevelSelect3() throws IOException {
-        HelloApplication.setRoot("postLevel3-view");
+    private void switchToPostLevelSelect3CutScene() throws IOException {
+        HelloApplication.setRoot("postLevel3CutScene-view");
         movementTimer.stop();
         collisionTimer.stop();
         timeline.stop();
+        musicPlayerLevel3.stop();
     }
     public void timer() {
         timeCount.setText(String.valueOf(time));
@@ -312,10 +327,15 @@ public class level3Controller {
             timeCount.setText(String.valueOf(time));
             if (time == 0) {
                 timeline.stop();
+                try {
+                    resetLevel();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 levelFailed.setText("Level Failed!");
                 hideLevelFailedAfterDelay();
-            }
-        }));
+            }}
+        ));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
@@ -329,6 +349,7 @@ public class level3Controller {
     public void scoreFinal(){
         int totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
+        System.out.println("Total Score is: " + totalScore);
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
@@ -336,12 +357,7 @@ public class level3Controller {
     private void hideLevelFailedAfterDelay() {
         Timeline hideTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             levelFailed.setText("");
-            try {
-                resetLevel();
-                System.out.println("Level reset");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println("Level reset");
         }));
         hideTimeline.play();
     }

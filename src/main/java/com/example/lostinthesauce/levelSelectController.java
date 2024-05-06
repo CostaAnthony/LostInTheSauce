@@ -10,12 +10,12 @@ public class levelSelectController {
     }
     @FXML
     private void switchToLevel2() throws IOException {
-        HelloApplication.setRoot("level2-view");
+        HelloApplication.setRoot("level2CutScene-view");
     }
 
     @FXML
     private void switchToLevel3() throws IOException {
-        HelloApplication.setRoot("level3-view");
+        HelloApplication.setRoot("level3CutScene-view");
     }
     @FXML
     private void switchToHome() throws IOException {
