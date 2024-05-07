@@ -28,7 +28,7 @@ public class levelSelectController {
     @FXML
     private void switchToLevel1() throws IOException {
         musicPlayerMenu.stop();
-        HelloApplication.setRoot("level1-view");
+        HelloApplication.setRoot("level1CutScene-view");
     }
     @FXML
     private void switchToLevel2() throws IOException {
