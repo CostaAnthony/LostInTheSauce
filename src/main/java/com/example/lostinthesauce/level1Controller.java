@@ -21,6 +21,7 @@ import java.io.IOException;
 
 public class level1Controller {
 
+
     @FXML
     private Pane scene = new Pane();
     @FXML
@@ -57,6 +58,21 @@ public class level1Controller {
     public int coin4Value;
     public int coin5Value;
     private MediaPlayer musicPlayerLevel1;
+    public int getCoin1Value() {
+        return coin1Value;
+    }
+
+    public void setCoin1Value(int coin1Value) {
+        this.coin1Value = coin1Value;
+    }
+
+    public int getCoin2Value() {
+        return coin2Value;
+    }
+
+    public void setCoin2Value(int coin2Value) {
+        this.coin2Value = coin2Value;
+    }
 
     @FXML
     void start(ActionEvent event) {

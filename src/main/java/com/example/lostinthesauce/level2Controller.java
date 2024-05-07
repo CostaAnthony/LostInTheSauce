@@ -63,6 +63,13 @@ public class level2Controller {
     public int coin5Value;
     public static int totalScore;
     private MediaPlayer musicPlayerLevel2;
+    public int getCoin1Value() {
+        return coin1Value;
+    }
+
+    public void setCoin1Value(int coin1Value) {
+        this.coin1Value = coin1Value;
+    }
     @FXML
     void start(ActionEvent event) {
         player.setLayoutY(623);
