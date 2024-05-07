@@ -43,12 +43,18 @@ public class SignInController {
     public String userUsername = "";
 
 
-
+    /** Switches to the home screen
+     * @throws IOException
+     */
     @FXML
     private void switchToHomeView() throws IOException {
         HelloApplication.setRoot("home-view");
     }
 
+    /** Adds data to Google Firebase
+     * The data collected include usernames and the high scores for each level,
+     * as well as the highest score
+     */
     public void addData() {
 
         DocumentReference docRef = HelloApplication.fstore.collection("Users").document(usernameTextfield.getText()+passwordTextField.getText());
@@ -70,6 +76,8 @@ public class SignInController {
     }
 
 
+    /** Initializes user in Google Firebase
+     */
     public void initUser(){
         key = false;
 
@@ -105,24 +113,19 @@ public class SignInController {
         passwordTextField.clear();
     }
 
-
+    /** Deletes user data from the firebase
+     */
     public void deleteData(){
         HelloApplication.fstore.collection("Users").document("85ac8fb7-6b6f-4524-a373-2150dfb0534b")
                 .delete();
     }
 
 
-
-
+    /** Updates user data in the firebase
+     */
     public void updateData(){
         HelloApplication.fstore.collection("Users").document(currentUser.getUsername()+currentUser.getPassword())
                 .update("Customization", 3);
-    }
-
-
-
-    public void readData(){
-
     }
 
 }

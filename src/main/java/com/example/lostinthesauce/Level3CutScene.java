@@ -14,6 +14,8 @@ public class Level3CutScene {
     private MediaView mediaViewLevel3;
     private MediaPlayer mediaPlayerLevel3;
 
+    /** Creates the cutscene before level1
+     */
     public void initialize() {
         String videoFileName = "level3Video.mp4";
         String videoFilePath = "/com/example/lostinthesauce/" + videoFileName;
@@ -33,6 +35,8 @@ public class Level3CutScene {
         );
     }
 
+    /** Skips the cutscene
+     */
     @FXML
     public void handleSkipButton() {
         mediaPlayerLevel3.stop();
@@ -44,6 +48,9 @@ public class Level3CutScene {
         }
     }
 
+    /** Switches to the first level
+     * @throws IOException
+     */
     @FXML
     private void switchToLevel3() throws IOException {
         HelloApplication.setRoot("level3-view");

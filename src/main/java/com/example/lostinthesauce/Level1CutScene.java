@@ -14,6 +14,9 @@ public class Level1CutScene {
     @FXML
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
+
+    /** Creates the cutscene before level1
+     */
     public void initialize() {
         String videoFile = "/Users/umer_/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
@@ -31,6 +34,9 @@ public class Level1CutScene {
                 }
         );
     }
+
+    /** Skips the cutscene
+     */
     @FXML
     public void handleSkipButton() {
         mediaPlayer.stop();
@@ -41,6 +47,10 @@ public class Level1CutScene {
             throw new RuntimeException(e);
         }
     }
+
+    /** Switches to the first level
+     * @throws IOException
+     */
     @FXML
     private void switchToLevel1() throws IOException {
         HelloApplication.setRoot("level1-view");

@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class FirestoreContext {
 
+    /** Initializes google firebase
+     * @return Firestore
+     */
     public Firestore firebase() {
         try {
 
