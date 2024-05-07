@@ -25,12 +25,6 @@
             <Button layoutX="270.0" layoutY="160.0" mnemonicParsing="false" onAction="#addData" prefHeight="26.0" prefWidth="120.0" text="Create Account" />
             <Button layoutX="270.0" layoutY="200.0" mnemonicParsing="false" onAction="#initUser" prefHeight="26.0" prefWidth="120.0" text="Login" />
             <Button layoutX="270.0" layoutY="240.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="26.0" prefWidth="120.0" text="Delete Account" />
-            <Button layoutX="270.0" layoutY="280.0" mnemonicParsing="false" onAction="#updateData" prefHeight="26.0" prefWidth="120.0" text="Update Data" />
-            <Button layoutX="487.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToHomeView" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: white;" text="Exit to Home">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
    </children>

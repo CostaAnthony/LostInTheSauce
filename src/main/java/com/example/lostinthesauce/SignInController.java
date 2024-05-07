@@ -36,7 +36,8 @@ public class SignInController {
     @FXML
     public TextField passwordTextField;
 
-    public User currentUser = new User("", "");
+    public static User currentUser = new User("", "");
+    public static int x=1;
 
     private boolean key;
 
@@ -44,10 +45,19 @@ public class SignInController {
 
 
 
+    public User returnUser(){
+        User returnedUser;
+        returnedUser = currentUser;
+        return returnedUser;
+    }
+
+
+
     @FXML
     private void switchToHomeView() throws IOException {
         HelloApplication.setRoot("home-view");
     }
+
 
     public void addData() {
 
@@ -88,6 +98,8 @@ public class SignInController {
                         //userUsername = String.valueOf(document.getData().get("Username"));
                                 currentUser.setUsername(String.valueOf(document.getData().get("Username")));
                                 currentUser.setPassword(String.valueOf(document.getData().get("Password")));
+
+                                //currentUser1.setUsername(String.valueOf(document.getData().get("Username")));
                     }
                 }
             }
@@ -107,18 +119,15 @@ public class SignInController {
 
 
     public void deleteData(){
-        HelloApplication.fstore.collection("Users").document("85ac8fb7-6b6f-4524-a373-2150dfb0534b")
+        HelloApplication.fstore.collection("Users").document(currentUser.getUsername()+currentUser.getPassword())
                 .delete();
     }
 
 
-
-
     public void updateData(){
         HelloApplication.fstore.collection("Users").document(currentUser.getUsername()+currentUser.getPassword())
-                .update("Customization", 3);
+                .update("Customization", 5);
     }
-
 
 
     public void readData(){

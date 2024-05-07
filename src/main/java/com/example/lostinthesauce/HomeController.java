@@ -9,7 +9,14 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 
+
 public class HomeController {
+
+    //public User currentUser1 = new User ("", "");
+
+    public void initialize(){
+        System.out.println("Hello!");
+    }
     @FXML
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
@@ -53,5 +60,11 @@ public class HomeController {
         mediaPlayer.stop();
         musicPlayer.stop();
     }
+
+
+
+
+
+
 
 }
