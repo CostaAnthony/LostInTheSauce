@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="scene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.level3Controller">
     <children>
@@ -1506,9 +1507,37 @@
             <Image url="@Assets/TreeTop.png" />
          </image>
       </ImageView>
-      <TextField fx:id="timeCount" layoutX="74.0" layoutY="72.0" />
-      <TextField fx:id="scoreCount" layoutX="74.0" layoutY="128.0" />
-      <TextField fx:id="levelFailed" layoutX="179.0" layoutY="220.0" prefHeight="124.0" prefWidth="261.0" />
-      <Rectangle fx:id="spikes" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="771.0" layoutY="600.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <TextField fx:id="scoreCount" layoutX="74.0" layoutY="128.0" style="-fx-background-color: clear;" />
+      <TextField fx:id="levelFailed" layoutX="179.0" layoutY="220.0" prefHeight="124.0" prefWidth="261.0" style="-fx-background-color: clear;" />
+      <Rectangle fx:id="spikes" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="30.0" layoutX="793.0" layoutY="603.0" stroke="TRANSPARENT" strokeType="INSIDE" width="80.0" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="793.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/Spikes.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="832.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/Spikes.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/timer.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="timeCount" alignment="CENTER" layoutX="82.0" layoutY="28.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font></TextField>
+      <TextField alignment="CENTER" layoutX="29.0" layoutY="28.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;" text="0">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" layoutX="51.0" layoutY="25.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;" text=":">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font>
+      </TextField>
     </children>
 </Pane>
