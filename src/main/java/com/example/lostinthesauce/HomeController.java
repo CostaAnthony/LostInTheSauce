@@ -14,9 +14,6 @@ public class HomeController {
 
     //public User currentUser1 = new User ("", "");
 
-    public void initialize(){
-        System.out.println("Hello!");
-    }
     @FXML
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;

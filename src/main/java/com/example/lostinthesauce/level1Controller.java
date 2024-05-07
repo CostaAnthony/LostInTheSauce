@@ -80,6 +80,7 @@ public class level1Controller {
     String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
     Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
+    public static int totalScore;
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -323,9 +324,10 @@ public class level1Controller {
         coin5Value = 0;
     }
     public void scoreFinal(){
-        int totalScore = addScore();
+        totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
         System.out.println("Total Score is: " + totalScore);
+        HelloApplication.fstore.collection("Users").document(SignInController.currentUser.getUsername()+SignInController.currentUser.getPassword()).update("Level 1 HiScore",scoreCount.getText());
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);

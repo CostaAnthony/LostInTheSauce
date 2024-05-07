@@ -15,7 +15,7 @@ public class Level1CutScene {
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
     public void initialize() {
-        String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
+        String videoFile = "/Users/costa/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 

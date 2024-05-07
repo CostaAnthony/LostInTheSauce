@@ -65,6 +65,7 @@ public class level3Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    public static int totalScore;
     private MediaPlayer musicPlayerLevel3;
 
     @FXML
@@ -353,9 +354,10 @@ public class level3Controller {
         coin5Value = 0;
     }
     public void scoreFinal(){
-        int totalScore = addScore();
+        totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
         System.out.println("Total Score is: " + totalScore);
+        HelloApplication.fstore.collection("Users").document(SignInController.currentUser.getUsername()+SignInController.currentUser.getPassword()).update("Level 3 HiScore",scoreCount.getText());
     }
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);

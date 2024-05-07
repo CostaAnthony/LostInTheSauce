@@ -10,8 +10,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class postLevel1Controller {
+    @FXML
+    private TextField scoreCount;
     private MediaPlayer musicPlayerMenu;
     public void initialize() {
+        scoreCount.setText(String.valueOf(level1Controller.totalScore));
         String userHome = System.getProperty("user.home");
 
         String homeMusic = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/menuMusicOther.mp3";
