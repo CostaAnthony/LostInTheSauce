@@ -29,6 +29,9 @@ public class postLevel3Controller extends level3Controller{
                 }
         );
     }
+    /** Switches to level select
+     * @throws IOException
+     */
     @FXML
     private void switchToLevelSelect() throws IOException {
         musicPlayerMenu.stop();

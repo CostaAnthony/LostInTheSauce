@@ -63,6 +63,7 @@ public class level2Controller {
     public int coin5Value;
     public static int totalScore;
     private MediaPlayer musicPlayerLevel2;
+
     public int getCoin1Value() {
         return coin1Value;
     }
@@ -70,6 +71,9 @@ public class level2Controller {
     public void setCoin1Value(int coin1Value) {
         this.coin1Value = coin1Value;
     }
+/** Sets the player at the default location
+ * @param ActionEvent event
+ */
     @FXML
     void start(ActionEvent event) {
         player.setLayoutY(623);
@@ -115,9 +119,10 @@ public class level2Controller {
             }
             if (wPressed && !isFalling) {
                 //Plays the jump sound effect
+
+                jumpSoundPlayer.seek(Duration.ZERO);
                 jumpSoundPlayer.play();
                 //Resets the jump sound back to the beginning of the track
-                jumpSoundPlayer.seek(Duration.ZERO);
                 velY += 10.5;
                 System.out.println("JUMP SOUND");
             }
@@ -137,6 +142,19 @@ public class level2Controller {
         }
     };
 
+    /** Each AnimationTimer plays a specific role in the program
+     * movementTimer checks for inputs to move the Player, as well as implements gravity
+     * collisionTimer checks for collision from the top of each platform,
+     * as well as the collision for the player and coins
+     * collisionTimer2 checks for collision from the sides of each platform
+     *
+     * timer() starts a timer for the level.
+     *
+     * scoreInitial() programs the score setup for the level
+     *
+     * The initialize method also sets up sound effects and background music
+     *
+     */
     public void initialize() {
         movementSetup();
         movementTimer.start();
@@ -157,6 +175,8 @@ public class level2Controller {
         );
     }
 
+    /** Checks for inputs, and causes the player object to move once inputs are detected
+     */
     public void movementSetup() {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.W || e.getCode() == KeyCode.SPACE) {
@@ -186,6 +206,8 @@ public class level2Controller {
         });
     }
 
+    /** Checks for collision between the player and the top of platforms and coins
+     */
     public void checkCollision() {
 
         if(player.getBoundsInParent().intersects(platform1.getBoundsInParent())&&player.getLayoutY() < platform1.getLayoutY()){
@@ -264,6 +286,9 @@ public class level2Controller {
         }
     }
 
+    /** Checks for collision between the Player and the sides of Platforms
+     *
+     */
     public void checkCollision2() {
         double playerLeft = player.getLayoutX();
         double playerRight = player.getLayoutX() + player.getFitWidth();
@@ -290,12 +315,18 @@ public class level2Controller {
     }
 
 
-
+    /**
+     * Prevents the player from dipping into platforms and snaps them back up if they do
+     * @param Rectangle platform
+     */
     public void fixPlayerDipping(Rectangle platform){
         isFalling = false;
         player.setLayoutY(platform.getLayoutY()-player.getFitHeight());
         System.out.println("Collision");
     }
+    /** Switches to home
+     * @throws IOException
+     */
     @FXML
     private void switchToHome() throws IOException {
         HelloApplication.setRoot("home-view");
@@ -304,6 +335,9 @@ public class level2Controller {
         collisionTimer.stop();
         timeline.stop();
     }
+    /** Switches to level select
+     * @throws IOException
+     */
     @FXML
     private void switchToLevelSelect() throws IOException {
         HelloApplication.setRoot("levelSelect-view");
@@ -312,6 +346,9 @@ public class level2Controller {
         musicPlayerLevel2.stop();
         timeline.stop();
     }
+    /**Switches to post level select
+     * @throws IOException
+     */
     private void switchToPostLevelSelect2() throws IOException {
         HelloApplication.setRoot("postLevel2-view");
         movementTimer.stop();
@@ -319,6 +356,8 @@ public class level2Controller {
         musicPlayerLevel2.stop();
         timeline.stop();
     }
+    /** Creates a timer
+     */
     public void timer() {
         timeCount.setText(String.valueOf(time));
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -338,6 +377,8 @@ public class level2Controller {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
+    /** Sets the score value for each coin
+     */
     public void scoreInitial() {
         coin1Value = 0;
         coin2Value = 0;
@@ -345,15 +386,22 @@ public class level2Controller {
         coin4Value = 0;
         coin5Value = 0;
     }
+    /** Calculates the final score using the addScore() method
+     */
     public void scoreFinal(){
         totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
         System.out.println("Total Score is: " + totalScore);
         HelloApplication.fstore.collection("Users").document(SignInController.currentUser.getUsername()+SignInController.currentUser.getPassword()).update("Level 2 HiScore",scoreCount.getText());
     }
+    /** Adds the score accumulated by each coin as well as the timer
+     * @return the int value for the total score
+     */
     public int addScore(){
         return coin1Value+coin2Value+coin3Value+coin4Value+coin5Value+(time*10);
     }
+    /** Hides the level after the user fails the level
+     */
     private void hideLevelFailedAfterDelay() {
         Timeline hideTimeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             levelFailed.setText("");
@@ -361,6 +409,9 @@ public class level2Controller {
         }));
         hideTimeline.play();
     }
+    /** Resets the level to default
+     * @throws IOException
+     */
     private void resetLevel() throws IOException {
         player.setLayoutY(660);
         player.setLayoutX(128);

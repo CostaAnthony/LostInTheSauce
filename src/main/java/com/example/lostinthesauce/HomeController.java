@@ -12,12 +12,13 @@ import java.io.IOException;
 
 public class HomeController {
 
-    //public User currentUser1 = new User ("", "");
-
     @FXML
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
     private MediaPlayer musicPlayer;
+
+    /** Initializes the cutscene that plays in the background of the home-view
+     */
     public void initialize() {
         String userHome = System.getProperty("user.home");
 
@@ -45,12 +46,20 @@ public class HomeController {
                 }
         );
     }
+
+    /** Method that allows buttons to switch to the sign-in screen from home screen
+     * @throws IOException
+     */
     @FXML
     private void switchToSignIn() throws IOException {
         HelloApplication.setRoot("signin-view");
         mediaPlayer.stop();
         musicPlayer.stop();
     }
+
+    /** Method that allows buttons to switch to the LevelSelect screens
+     * @throws IOException
+     */
     @FXML
     private void switchToLevelSelect() throws IOException {
         HelloApplication.setRoot("levelSelect-view");

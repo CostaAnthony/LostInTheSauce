@@ -10,11 +10,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
+
 public class HelloApplication extends Application {
     public static Scene scene;
     public static Firestore fstore;
     public static FirebaseAuth fauth;
     private final FirestoreContext contxtFirebase = new FirestoreContext();
+
+    /** Start method for the program. Sets scene to home-view.fxml
+     * and starts the Google Firebase
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         fstore = contxtFirebase.firebase();

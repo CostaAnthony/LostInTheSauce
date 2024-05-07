@@ -29,11 +29,17 @@ public class postLevel1Controller {
                 }
         );
     }
+    /** Switches to level select
+     * @throws IOException
+     */
     @FXML
     private void switchToLevelSelect() throws IOException {
         musicPlayerMenu.stop();
         HelloApplication.setRoot("levelSelect-view");
     }
+    /** Switches to level 2
+     * @throws IOException
+     */
     @FXML
     private void switchToLevel2() throws IOException {
         musicPlayerMenu.stop();

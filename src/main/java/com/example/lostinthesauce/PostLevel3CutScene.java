@@ -13,6 +13,9 @@ public class PostLevel3CutScene {
     @FXML
     private MediaView mediaViewPostLevel3;
     private MediaPlayer mediaPlayerPostLevel3;
+
+    /** Creates the cutscene for after the player finishes level 3
+     */
     public void initialize() {
         String videoFileName = "postLevel3.mp4";
         String videoFilePath = "/com/example/lostinthesauce/" + videoFileName;
@@ -33,6 +36,9 @@ public class PostLevel3CutScene {
                 }
         );
     }
+
+    /** Skips the cutscene
+     */
     @FXML
     public void handleSkipButton() {
         mediaPlayerPostLevel3.stop();
@@ -43,6 +49,10 @@ public class PostLevel3CutScene {
             throw new RuntimeException(e);
         }
     }
+
+    /** Switches to the score screen after level 3
+     * @throws IOException
+     */
     @FXML
     private void switchToPostLevel3() throws IOException {
         HelloApplication.setRoot("postLevel3-view");

@@ -22,6 +22,9 @@ public class coin {
         return circle;
     }
 
+    /** Sets a circle object to be non-visible
+     * @param collected
+     */
     public void setCollected(boolean collected) {
         circle.setVisible(!collected);
     }
