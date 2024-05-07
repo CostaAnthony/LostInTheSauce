@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="scene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1705.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lostinthesauce.level1Controller">
    <children>
@@ -1375,8 +1376,96 @@
             <Image url="@Assets/Portal.png" />
          </image>
       </ImageView>
-     <TextField fx:id="timeCount" editable="false" layoutX="69.0" layoutY="61.0" prefHeight="25.0" prefWidth="243.0" />
-     <TextField fx:id="scoreCount" editable="false" layoutX="70.0" layoutY="99.0" prefHeight="25.0" prefWidth="241.0" />
-     <TextField fx:id="levelFailed" editable="false" layoutX="222.0" layoutY="226.0" prefHeight="165.0" prefWidth="444.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/timer.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="timeCount" alignment="CENTER" layoutX="82.0" layoutY="28.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font></TextField>
+      <TextField alignment="CENTER" layoutX="29.0" layoutY="28.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;" text="0">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" layoutX="51.0" layoutY="25.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: clear; -fx-text-inner-color: white;" text=":">
+         <font>
+            <Font name="Trebuchet MS" size="48.0" />
+         </font>
+      </TextField>
+     <TextField fx:id="scoreCount" editable="false" layoutX="70.0" layoutY="99.0" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: clear;" />
+     <TextField fx:id="levelFailed" editable="false" layoutX="222.0" layoutY="226.0" prefHeight="165.0" prefWidth="444.0" style="-fx-background-color: clear;" />
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="166.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20A.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="166.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20D.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="101.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20Left.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="101.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20Right.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="101.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20Up.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="166.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Letters/Key%20W.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="36.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20C.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="68.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20O.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="132.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20T.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="100.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20N.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="229.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20L.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="263.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20S.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="163.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20R.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="196.0" layoutY="170.0" pickOnBounds="true">
+         <image>
+            <Image url="@Letters/Letter%20O.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
