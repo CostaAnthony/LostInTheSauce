@@ -107,9 +107,10 @@ public class level2Controller {
             }
             if (wPressed && !isFalling) {
                 //Plays the jump sound effect
+
+                jumpSoundPlayer.seek(Duration.ZERO);
                 jumpSoundPlayer.play();
                 //Resets the jump sound back to the beginning of the track
-                jumpSoundPlayer.seek(Duration.ZERO);
                 velY += 10.5;
                 System.out.println("JUMP SOUND");
             }

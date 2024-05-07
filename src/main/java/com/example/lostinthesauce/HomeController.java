@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class HomeController {
+
     @FXML
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
