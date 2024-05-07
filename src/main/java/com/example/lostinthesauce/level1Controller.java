@@ -21,6 +21,7 @@ import java.io.IOException;
 
 public class level1Controller {
 
+
     @FXML
     private Pane scene = new Pane();
     @FXML
@@ -57,6 +58,21 @@ public class level1Controller {
     public int coin4Value;
     public int coin5Value;
     private MediaPlayer musicPlayerLevel1;
+    public int getCoin1Value() {
+        return coin1Value;
+    }
+
+    public void setCoin1Value(int coin1Value) {
+        this.coin1Value = coin1Value;
+    }
+
+    public int getCoin2Value() {
+        return coin2Value;
+    }
+
+    public void setCoin2Value(int coin2Value) {
+        this.coin2Value = coin2Value;
+    }
 
     /** Sets the player at the default location
      * @param ActionEvent event
@@ -83,6 +99,7 @@ public class level1Controller {
     String bottleSoundMP3 = userHome + "/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/bottle2.mp3";
     Media bottleSound = new Media(new File(bottleSoundMP3).toURI().toString());
     MediaPlayer bottleSoundPlayer = new MediaPlayer(bottleSound);
+    public static int totalScore;
 
     AnimationTimer movementTimer = new AnimationTimer() {
         @Override
@@ -372,9 +389,10 @@ public class level1Controller {
     /** Calculates the final score using the addScore() method
      */
     public void scoreFinal(){
-        int totalScore = addScore();
+        totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
         System.out.println("Total Score is: " + totalScore);
+        HelloApplication.fstore.collection("Users").document(SignInController.currentUser.getUsername()+SignInController.currentUser.getPassword()).update("Level 1 HiScore",scoreCount.getText());
     }
 
     /** Adds the score accumulated by each coin as well as the timer

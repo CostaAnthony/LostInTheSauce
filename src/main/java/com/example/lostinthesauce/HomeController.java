@@ -9,6 +9,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 
+
 public class HomeController {
 
     @FXML
@@ -65,5 +66,11 @@ public class HomeController {
         mediaPlayer.stop();
         musicPlayer.stop();
     }
+
+
+
+
+
+
 
 }

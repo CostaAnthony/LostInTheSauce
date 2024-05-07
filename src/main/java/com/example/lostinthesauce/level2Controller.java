@@ -61,11 +61,19 @@ public class level2Controller {
     public int coin3Value;
     public int coin4Value;
     public int coin5Value;
+    public static int totalScore;
     private MediaPlayer musicPlayerLevel2;
 
-    /** Sets the player at the default location
-     * @param ActionEvent event
-     */
+    public int getCoin1Value() {
+        return coin1Value;
+    }
+
+    public void setCoin1Value(int coin1Value) {
+        this.coin1Value = coin1Value;
+    }
+/** Sets the player at the default location
+ * @param ActionEvent event
+ */
     @FXML
     void start(ActionEvent event) {
         player.setLayoutY(623);
@@ -381,9 +389,10 @@ public class level2Controller {
     /** Calculates the final score using the addScore() method
      */
     public void scoreFinal(){
-        int totalScore = addScore();
+        totalScore = addScore();
         scoreCount.setText(String.valueOf(totalScore));
         System.out.println("Total Score is: " + totalScore);
+        HelloApplication.fstore.collection("Users").document(SignInController.currentUser.getUsername()+SignInController.currentUser.getPassword()).update("Level 2 HiScore",scoreCount.getText());
     }
     /** Adds the score accumulated by each coin as well as the timer
      * @return the int value for the total score

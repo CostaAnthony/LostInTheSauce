@@ -18,7 +18,8 @@ public class Level1CutScene {
     /** Creates the cutscene before level1
      */
     public void initialize() {
-        String videoFile = "/Users/umer_/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
+
+        String videoFile = "/Users/costa/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
