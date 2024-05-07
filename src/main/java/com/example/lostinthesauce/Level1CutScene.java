@@ -15,7 +15,7 @@ public class Level1CutScene {
     private MediaView mediaView;
     private MediaPlayer mediaPlayer;
     public void initialize() {
-        String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/lostInSauceTestVideo.mp4";
+        String videoFile = "/Users/jay/IdeaProjects/LostInTheSauce/src/main/resources/com/example/lostinthesauce/level1Video.mp4";
         Media media = new Media(new File(videoFile).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
 
@@ -33,8 +33,13 @@ public class Level1CutScene {
     }
     @FXML
     public void handleSkipButton() {
-        Duration totalDuration = mediaPlayer.getTotalDuration();
-        mediaPlayer.seek(totalDuration);
+        mediaPlayer.stop();
+        mediaPlayer.seek(Duration.ZERO);
+        try {
+            switchToLevel1();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     private void switchToLevel1() throws IOException {
